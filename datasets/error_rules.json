@@ -1,0 +1,110 @@
+[
+    {
+        "pattern": "invalid syntax",
+        "arti": "Sintaks tidak valid",
+        "penyebab": "Ada kesalahan penulisan kode (typo, struktur salah)",
+        "solusi": "Periksa kembali baris kode, terutama tanda kurung dan titik dua (:)"
+    },
+    {
+        "pattern": "was never closed|unterminated string literal",
+        "arti": "Tanda kurung atau string tidak ditutup",
+        "penyebab": "Lupa menutup tanda kurung atau petik",
+        "solusi": "Pastikan semua tanda kurung dan petik ditutup"
+    },
+    {
+        "pattern": "unexpected indent",
+        "arti": "Indentasi tidak sesuai",
+        "penyebab": "Spasi/tab tidak konsisten",
+        "solusi": "Gunakan 4 spasi dan jangan campur tab"
+    },
+    {
+        "pattern": "unindent does not match",
+        "arti": "Indentasi tidak cocok",
+        "penyebab": "Struktur blok tidak rapi",
+        "solusi": "Periksa blok if, for, dan function"
+    },
+    {
+        "pattern": "NameError|is not defined",
+        "arti": "Variabel atau fungsi tidak dikenali",
+        "penyebab": "Variabel belum dibuat atau salah nama",
+        "solusi": "Pastikan variabel sudah didefinisikan"
+    },
+    {
+        "pattern": "TypeError",
+        "arti": "Tipe data tidak sesuai",
+        "penyebab": "Operasi antar tipe berbeda",
+        "solusi": "Gunakan konversi tipe seperti int(), str()"
+    },
+    {
+        "pattern": "unsupported operand type",
+        "arti": "Operasi tidak didukung",
+        "penyebab": "Tipe data tidak kompatibel",
+        "solusi": "Periksa tipe data sebelum operasi"
+    },
+    {
+        "pattern": "ValueError",
+        "arti": "Nilai tidak valid",
+        "penyebab": "Input tidak sesuai format",
+        "solusi": "Validasi input sebelum diproses"
+    },
+    {
+        "pattern": "invalid literal for int",
+        "arti": "Gagal konversi ke integer",
+        "penyebab": "String bukan angka",
+        "solusi": "Pastikan input berupa angka"
+    },
+    {
+        "pattern": "ZeroDivisionError",
+        "arti": "Pembagian dengan nol",
+        "penyebab": "Membagi angka dengan 0",
+        "solusi": "Cek pembagi sebelum operasi"
+    },
+    {
+        "pattern": "IndexError|list index out of range",
+        "arti": "Indeks di luar jangkauan",
+        "penyebab": "Akses list melebihi panjang",
+        "solusi": "Gunakan len() untuk validasi"
+    },
+    {
+        "pattern": "KeyError",
+        "arti": "Key tidak ditemukan",
+        "penyebab": "Key tidak ada di dictionary",
+        "solusi": "Gunakan get() atau cek key"
+    },
+    {
+        "pattern": "AttributeError",
+        "arti": "Atribut tidak ditemukan",
+        "penyebab": "Objek tidak memiliki atribut",
+        "solusi": "Periksa atribut dan tipe objek"
+    },
+    {
+        "pattern": "ModuleNotFoundError",
+        "arti": "Modul tidak ditemukan",
+        "penyebab": "Modul belum diinstall",
+        "solusi": "Install dengan pip"
+    },
+    {
+        "pattern": "FileNotFoundError|No such file or directory",
+        "arti": "File tidak ditemukan",
+        "penyebab": "Path salah atau file tidak ada",
+        "solusi": "Periksa lokasi file"
+    },
+    {
+        "pattern": "missing required positional argument",
+        "arti": "Argumen fungsi kurang",
+        "penyebab": "Parameter tidak lengkap",
+        "solusi": "Lengkapi argumen fungsi"
+    },
+    {
+        "pattern": "takes .* positional arguments but .* were given",
+        "arti": "Jumlah argumen salah",
+        "penyebab": "Argumen tidak sesuai",
+        "solusi": "Sesuaikan jumlah argumen"
+    },
+    {
+    "pattern": "unmatched",
+    "arti": "Tanda kurung/kurawal tidak berpasangan",
+    "penyebab": "Ada tanda penutup tanpa pasangan pembuka atau sebaliknya",
+    "solusi": "Periksa pasangan tanda (), [], {} agar seimbang"
+    }
+]
