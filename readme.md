@@ -1,7 +1,7 @@
 # ITS (CODELLAMA-7B-INSTRUCT)
+Core repository model of Intelligent Tutoring System using models from ollama: codellama-7b-instruct to automate assesment for student's python coding assignments
 
 ## TO RUN THE PROJECT
-
 CLONE THE PROJECT
 ```git clone https://github.com/ITS-Research-dev/its-codellama-7b.git```
 
