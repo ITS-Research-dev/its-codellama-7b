@@ -1,4 +1,9 @@
-# TO RUN THE PROJECT
+# ITS (CODELLAMA-7B-INSTRUCT)
+
+## TO RUN THE PROJECT
+
+CLONE THE PROJECT
+```git clone https://github.com/ITS-Research-dev/its-codellama-7b.git```
 
 INSTALL DEPENDENCIES FIRST
 ```pip install openai python-dotenv --break-system-packages```
