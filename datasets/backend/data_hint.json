@@ -1,0 +1,10 @@
+{
+  "soal_1": {
+    "pertanyaan": "Buat fungsi penjumlahan dua angka dalam Python",
+    "hints": {
+      "1": "Hint 1 (Pseudo): Coba pikirkan bagaimana cara mendefinisikan fungsi menggunakan kata kunci 'def'.",
+      "2": "Hint 2 (Cloze Code): Coba lengkapi bagian ini: def tambah(a, b): return ___",
+      "3": "Hint 3 (Basic Code): Gunakan struktur return a + b untuk menjumlahkan variabel tersebut."
+    }
+  }
+}
