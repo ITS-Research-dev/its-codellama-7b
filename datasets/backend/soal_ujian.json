@@ -12,236 +12,615 @@
     },
     {
         "id": 2,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Percabangan (Ganjil/Genap)",
         "judul": "Deteksi Angka Ganjil",
         "soal": "Buat fungsi untuk mengecek apakah sebuah angka adalah ganjil atau genap.",
-        "expected_output": "Angka 7 adalah Ganjil"
+        "expected_output": "Angka 7 adalah Ganjil",
+        "level": "easy"
     },
     {
         "id": 3,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Fungsi & Operasi Aritmatika",
         "judul": "Menjumlahkan Dua Angka",
         "soal": "Buat fungsi untuk menjumlahkan dua angka.",
-        "expected_output": "Hasil penjumlahan 3 + 5 = 8"
+        "expected_output": "Hasil penjumlahan 3 + 5 = 8",
+        "level": "easy"
     },
     {
         "id": 4,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Fungsi & Operasi Matematika (Geometri)",
         "judul": "Menghitung Luas Persegi",
         "soal": "Buat fungsi untuk menghitung luas persegi jika diketahui sisi.",
-        "expected_output": "Jika sisi=4, maka luas=16"
+        "expected_output": "Jika sisi=4, maka luas=16",
+        "level": "easy"
     },
     {
         "id": 5,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Fungsi & Operasi Matematika (Geometri)",
         "judul": "Menghitung Keliling Persegi",
         "soal": "Buat fungsi untuk menghitung keliling persegi.",
-        "expected_output": "Jika sisi=4, maka keliling=16"
+        "expected_output": "Jika sisi=4, maka keliling=16",
+        "level": "easy"
     },
     {
         "id": 6,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Fungsi & Konversi Satuan",
         "judul": "Konversi Suhu Celcius ke Fahrenheit",
         "soal": "Buat fungsi untuk mengkonversi suhu dari Celcius ke Fahrenheit.",
-        "expected_output": "30°C = 86.0°F"
+        "expected_output": "30°C = 86.0°F",
+        "level": "easy"
     },
     {
         "id": 7,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Percabangan (Perbandingan Angka)",
         "judul": "Menentukan Bilangan Terbesar",
         "soal": "Buat fungsi untuk menentukan angka terbesar dari dua angka.",
-        "expected_output": "Angka terbesar dari 10 dan 7 adalah 10"
+        "expected_output": "Angka terbesar dari 10 dan 7 adalah 10",
+        "level": "easy"
     },
     {
         "id": 8,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Operasi String",
         "judul": "Menghitung Panjang String",
         "soal": "Buat fungsi untuk menghitung jumlah karakter dalam sebuah string.",
-        "expected_output": "Panjang string 'Python' adalah 6"
+        "expected_output": "Panjang string 'Python' adalah 6",
+        "level": "easy"
     },
     {
         "id": 9,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Operasi String",
         "judul": "Membalik String",
         "soal": "Buat fungsi untuk membalik sebuah string.",
-        "expected_output": "'Python' dibalik menjadi 'nohtyP'"
+        "expected_output": "'Python' dibalik menjadi 'nohtyP'",
+        "level": "easy"
     },
     {
         "id": 10,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Fungsi & Perulangan (Faktorial)",
         "judul": "Menghitung Faktorial",
         "soal": "Buat fungsi untuk menghitung faktorial dari sebuah angka.",
-        "expected_output": "Faktorial 5 adalah 120"
+        "expected_output": "Faktorial 5 adalah 120",
+        "level": "easy"
     },
     {
         "id": 11,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Perulangan (Loop)",
         "judul": "Menampilkan Bilangan 1-10",
         "soal": "Buat program untuk menampilkan angka dari 1 sampai 10 menggunakan perulangan.",
-        "expected_output": "1 2 3 4 5 6 7 8 9 10"
+        "expected_output": "1 2 3 4 5 6 7 8 9 10",
+        "level": "easy"
     },
     {
         "id": 12,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Struktur Data List",
         "judul": "Menjumlahkan Angka dalam List",
         "soal": "Buat fungsi untuk menjumlahkan semua angka dalam sebuah list.",
-        "expected_output": "Jumlah [1,2,3,4] adalah 10"
+        "expected_output": "Jumlah [1,2,3,4] adalah 10",
+        "level": "easy"
     },
     {
         "id": 13,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Struktur Data List",
         "judul": "Mencari Nilai Maksimum dalam List",
         "soal": "Buat fungsi untuk mencari nilai terbesar dalam list.",
-        "expected_output": "Nilai terbesar dari [2,5,1,9] adalah 9"
+        "expected_output": "Nilai terbesar dari [2,5,1,9] adalah 9",
+        "level": "easy"
     },
     {
         "id": 14,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Operasi String",
         "judul": "Mengecek Palindrome",
         "soal": "Buat fungsi untuk mengecek apakah sebuah kata adalah palindrome.",
-        "expected_output": "'katak' adalah palindrome"
+        "expected_output": "'katak' adalah palindrome",
+        "level": "easy"
     },
     {
         "id": 15,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Struktur Data List",
         "judul": "Menghitung Rata-rata",
         "soal": "Buat fungsi untuk menghitung rata-rata dari list angka.",
-        "expected_output": "Rata-rata [2,4,6,8] adalah 5.0"
+        "expected_output": "Rata-rata [2,4,6,8] adalah 5.0",
+        "level": "easy"
     },
     {
         "id": 16,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Fungsi & Konversi Satuan",
         "judul": "Konversi Detik ke Menit",
         "soal": "Buat fungsi untuk mengkonversi detik ke menit.",
-        "expected_output": "120 detik = 2.0 menit"
+        "expected_output": "120 detik = 2.0 menit",
+        "level": "easy"
     },
     {
         "id": 17,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Operasi String",
         "judul": "Menghapus Spasi dalam String",
         "soal": "Buat fungsi untuk menghapus semua spasi dalam string.",
-        "expected_output": "'halo dunia' menjadi 'halodunia'"
+        "expected_output": "'halo dunia' menjadi 'halodunia'",
+        "level": "easy"
     },
     {
         "id": 18,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Operasi String",
         "judul": "Menghitung Jumlah Huruf Vokal",
         "soal": "Buat fungsi untuk menghitung jumlah huruf vokal dalam sebuah string.",
-        "expected_output": "Jumlah vokal dalam 'python' adalah 1"
+        "expected_output": "Jumlah vokal dalam 'python' adalah 1",
+        "level": "easy"
     },
     {
         "id": 19,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Pemrograman Python - Percabangan (Logika Kondisional)",
         "judul": "Menentukan Tahun Kabisat",
         "soal": "Buat fungsi untuk menentukan apakah sebuah tahun adalah tahun kabisat.",
-        "expected_output": "Tahun 2024 adalah tahun kabisat"
+        "expected_output": "Tahun 2024 adalah tahun kabisat",
+        "level": "easy"
     },
     {
         "id": 20,
-        "checked": true, "source_valid": "mixed",
+        "checked": true,
+        "source_valid": "mixed",
         "reference": "Agus Juhana STEl",
         "sub-theme": "Algoritma Pemrograman - Pengurutan Data (Sorting)",
         "judul": "Mengurutkan List",
         "soal": "Buat fungsi untuk mengurutkan list angka secara ascending.",
-        "expected_output": "[3,1,4,2] menjadi [1,2,3,4]"
+        "expected_output": "[3,1,4,2] menjadi [1,2,3,4]",
+        "level": "easy"
     },
     {
         "id": 21,
-        "checked": true, "source_valid": "valid",
-        "reference": "AI_REF_3 Hal 55 (AP-K10-07)",
-        "sub-theme": "Algoritma Pemrograman - Percabangan Bersarang (Nested If)",
-        "judul": "Program Kelulusan Peserta Didik",
-        "soal": "Buatlah program (algoritma/kode) otomatis untuk menentukan kelulusan peserta didik berdasarkan nilai akhir dan persentase kehadiran, dengan ketentuan:\n(a) nilai akhir minimal 75;\n(b) kehadiran minimal 80%;\n(c) jika nilai antara 70-74, peserta didik tetap dinyatakan lulus apabila kehadiran di atas 90%;\n(d) jika salah satu syarat tidak terpenuhi, peserta didik dinyatakan tidak lulus.\nSusun algoritmanya (nested if), lalu uji coba dengan beberapa nilai contoh.",
-        "expected_output": "Program mencetak status 'Lulus' atau 'Tidak Lulus' sesuai kombinasi input nilai akhir dan kehadiran. Contoh: nilai=80, kehadiran=85% -> 'Lulus'; nilai=72, kehadiran=95% -> 'Lulus' (aturan pengecualian); nilai=72, kehadiran=85% -> 'Tidak Lulus'."
-    },
-    {
-        "id": 22,
-        "checked": true, "source_valid": "valid",
-        "reference": "AI_REF_3 Hal 55-56 (AP-K10-08)",
-        "sub-theme": "Algoritma Pemrograman - Pengurutan Data (Sorting)",
-        "judul": "Mengurutkan Data Array dengan Selection Sort",
-        "soal": "Buatlah program untuk mengurutkan data secara otomatis dari data array berikut: [15, 25, 13, 5, 30, 40, 7]. Simulasikan dan catat setiap langkah pengurutan menggunakan algoritma Selection Sort. Kemudian ubah salah satu elemen array menjadi [1, 25, 13, 5, 2, 40, 7] dan analisis apakah langkah simulasi sebelumnya masih bisa langsung diterapkan.",
-        "expected_output": "Array [15, 25, 13, 5, 30, 40, 7] menjadi terurut naik: [5, 7, 13, 15, 25, 30, 40], disertai catatan langkah-langkah pertukaran selection sort di setiap iterasi."
-    },
-    {
-        "id": 23,
-        "checked": true, "source_valid": "valid",
-        "reference": "AI_REF_3 Hal 78-79 (AP-K10-09)",
-        "sub-theme": "Pemrograman Python - Percabangan",
-        "judul": "Program Mengenali Bentuk Persegi Panjang atau Persegi (Sama Sisi)",
-        "soal": "Buatlah program Python yang menerima input panjang dan lebar suatu bidang, lalu memeriksa apakah nilai panjang sama dengan lebar. Jika sama, tampilkan 'sama sisi'; jika tidak, tampilkan 'persegi panjang'.",
-        "expected_output": "Input panjang=10, lebar=10 -> output: 'sama sisi'. Input panjang=10, lebar=5 -> output: 'persegi panjang'."
-    },
-    {
-        "id": 24,
-        "checked": true, "source_valid": "valid",
-        "reference": "AI_REF_3 Hal 80-82 (AP-K10-09)",
-        "sub-theme": "Pemrograman Python - Operasi Aritmatika",
-        "judul": "Program Menampilkan Umur dan Tahun Lahir",
-        "soal": "Buatlah program Python yang menerima input nama dan umur pengguna, lalu menghitung tahun lahir dengan rumus tahun lahir = 2025 - umur, dan menampilkan pesan 'Halo, <nama>, kamu lahir tahun <tahunlahir>.'",
-        "expected_output": "Input nama='Rani', umur=16 -> output: 'Halo, Rani, kamu lahir tahun 2009.'"
-    },
-    {
-        "id": 25,
-        "checked": true, "source_valid": "valid",
-        "reference": "AI_REF_3 Hal 93 (AP-K10-10)",
-        "sub-theme": "Debugging Kode Program",
-        "judul": "Menemukan dan Memperbaiki Kesalahan pada Kode Python",
-        "soal": "Diberikan potongan kode Python berikut yang mengandung kesalahan:\nusia = int(input(\"Masukkan usia anda: \"))\nprint(f\"Usia anda adalah {} tahun\", usia)",
-        "expected_output": "Setelah diperbaiki (mis. print(f\"Usia anda adalah {usia} tahun\")), program berjalan tanpa error dan mencetak, misalnya, 'Usia anda adalah 16 tahun' untuk input usia=16."
-    },
-    {
-        "id": 27,
-        "checked": true, "source_valid": "valid",
-        "reference": "AI_REF_3 Hal 100-101 (AP-K10-12)",
-        "sub-theme": "Pemrograman Python - Rule Based / If-Then",
-        "judul": "Membuat Chatbot Sederhana Asisten Sekolah",
-        "soal": "Buatlah program chatbot sederhana berbasis Python (di OnlineGDB) menggunakan logika if-then untuk menjawab pertanyaan umum seputar sekolah seperti jadwal pelajaran, guru pengampu, dan waktu istirahat berdasarkan kata kunci. Uji chatbot dengan pertanyaan: 'Siapa nama gurumu?', 'Halo', 'Kapan waktu istirahat?', dan 'Keluar'.",
-        "expected_output": "Chatbot merespons sesuai kata kunci, contoh: 'Halo' -> balasan sapaan; 'Kapan waktu istirahat?' -> jam istirahat; 'Siapa nama gurumu?' -> nama guru pengampu; 'Keluar' -> program berhenti/selesai."
-    },
-    {
-        "id": 36,
-        "checked": true, "source_valid": "valid",
+        "checked": true,
+        "source_valid": "valid",
         "reference": "AI_REF_1 Hal 129-130",
         "sub-theme": "Algoritma Pengurutan - Bubble/Quick/Merge Sort (Python)",
         "judul": "Studi Kasus: Menyusun dan Mengurutkan Data dalam Berbagai Konteks",
         "soal": "Pilih satu skenario (Ranking Nilai Ujian, Daftar Kehadiran, Produk E-Commerce, Kartu Remi, atau Peringkat Atlet), tentukan algoritma sorting (Bubble Sort/Quick Sort/Merge Sort) yang paling tepat untuk skenario tersebut dengan alasan efisiensinya.",
-        "expected_output": "Data pada skenario terpilih (misalnya daftar nilai ujian) berhasil diurutkan sesuai kriteria (naik/turun); program Python berjalan tanpa error dan menampilkan hasil pengukuran waktu eksekusi yang menunjukkan algoritma dengan kompleksitas O(n log n) lebih efisien dibanding O(n²) pada dataset besar."
+        "expected_output": "Data nilai ujian [78, 65, 90, 82, 71] diurutkan naik menjadi [65, 71, 78, 82, 90]; waktu eksekusi Bubble Sort = 0.0021 detik, Quick Sort = 0.0004 detik untuk 1000 data (Quick Sort lebih efisien).",
+        "level": "hard"
+    },
+    {
+        "id": 22,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_1 Hal 139",
+        "sub-theme": "Algoritma Pencarian - Linear Search vs Binary Search (Python)",
+        "judul": "Studi Kasus: Mencari Nama dalam Daftar Murid",
+        "soal": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+        "expected_output": "Daftar nama ['Andi','Budi','Citra','Dewi','Eka'], dicari 'Citra' -> Linear Search: ditemukan di indeks 2 (3 kali perbandingan); Binary Search (setelah diurutkan): ditemukan di indeks 2 (2 kali perbandingan).",
+        "level": "medium",
+        "hints": [
+        "pseudocode",
+        "code"
+        ]
+    },
+    {
+        "id": 23,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_1 Hal 141",
+        "sub-theme": "Algoritma Pencarian - Binary Search (Python)",
+        "judul": "Studi Kasus: Mencari Harga Produk pada E-Commerce",
+        "soal": "Sebuah toko online memiliki daftar harga produk yang telah diurutkan. Buatlah program Python yang menggunakan Binary Search untuk mencari harga produk tertentu dan tampilkan posisi data apabila ditemukan.",
+        "expected_output": "Daftar harga [10000, 15000, 20000, 25000, 30000], dicari 20000 -> ditemukan di indeks 2",
+        "level": "medium",
+        "hints": [
+        "pseudocode",
+        "code"
+        ]
+    },
+    {
+        "id": 24,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_1 Hal 143",
+        "sub-theme": "Algoritma Pencarian - Binary Search (Python)",
+        "judul": "Studi Kasus: Mencari Nomor Pegawai dalam Database",
+        "soal": "Sebuah perusahaan menyimpan nomor pegawai dalam daftar yang telah diurutkan. Buatlah program Python menggunakan Binary Search untuk mencari nomor pegawai tertentu dan tampilkan hasil pencariannya.",
+        "expected_output": "Daftar nomor pegawai [101, 105, 110, 115, 120], dicari 110 -> ditemukan di indeks 2",
+        "level": "medium",
+        "hints": [
+        "pseudocode",
+        "code"
+        ]
+    },
+    {
+        "id": 25,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_1 Hal 146",
+        "sub-theme": "Algoritma Pencarian - Binary Search Data Menurun (Python)",
+        "judul": "Studi Kasus: Mencari Skor Siswa",
+        "soal": "Daftar skor siswa telah diurutkan secara menurun. Buatlah program Python yang memodifikasi Binary Search agar dapat mencari skor tertentu pada data yang tersusun dari nilai terbesar ke terkecil.",
+        "expected_output": "Daftar skor [95, 88, 76, 65, 50], dicari 76 -> ditemukan di indeks 2",
+        "level": "hard",
+        "hints": [
+        "pseudocode",
+        "code"
+        ]
+    },
+    {
+        "id": 26,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_1 Hal 148",
+        "sub-theme": "Algoritma Pencarian - Binary Search ISBN (Python)",
+        "judul": "Studi Kasus: Pencarian Buku di Perpustakaan",
+        "soal": "Sebuah perpustakaan menyimpan daftar nomor ISBN buku. Urutkan terlebih dahulu daftar ISBN, kemudian buatlah program Python yang menggunakan Binary Search untuk menemukan buku berdasarkan ISBN yang dicari.",
+        "expected_output": "Daftar ISBN [9780201379624, 9780134685991, 9780441002656] diurutkan menjadi [9780134685991, 9780201379624, 9780441002656], dicari 9780201379624 -> ditemukan di indeks 1",
+        "level": "hard",
+        "hints": [
+        "pseudocode",
+        "code"
+        ]
+    },
+    {
+        "id": 27,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_2 Hal 79",
+        "sub-theme": "Pemrograman Berbasis Teks - Python",
+        "judul": "Praktikum: Membuat Program Python Sederhana",
+        "soal": "Buatlah program menggunakan bahasa pemrograman Python berdasarkan algoritma atau flowchart yang telah dibuat sebelumnya. Program harus dapat menerima masukan, memproses data sesuai logika algoritma, kemudian menampilkan hasilnya.",
+        "expected_output": "Contoh: input daftar harga belanja [5000, 7000, 3000] -> output 'Total belanja: 15000'",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 28,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_2 Hal 82",
+        "sub-theme": "Debugging Program Python",
+        "judul": "Praktikum: Analisis Kesalahan Program Python",
+        "soal": "Diberikan sebuah potongan program Python yang mengandung kesalahan sintaks maupun logika. Identifikasi letak kesalahan, jelaskan penyebabnya, kemudian perbaiki agar program dapat dijalankan dengan benar.",
+        "expected_output": "Kode awal 'print(hasil)' tanpa mendefinisikan variabel 'hasil' menghasilkan NameError; setelah diperbaiki menjadi 'hasil = 10 + 5' lalu 'print(hasil)', program mencetak '15'",
+        "level": "medium",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 29,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_2 Hal 83",
+        "sub-theme": "Debugging Program Python",
+        "judul": "Praktikum Berpasangan: Memperbaiki Program Python",
+        "soal": "Secara berpasangan, analisis sebuah program Python yang mengalami kesalahan. Diskusikan penyebab bug, lakukan debugging, kemudian jalankan kembali program hingga menghasilkan keluaran yang benar.",
+        "expected_output": "Kode awal 'for i in range(5) print(i)' menghasilkan SyntaxError karena tidak ada tanda titik dua; setelah diperbaiki menjadi 'for i in range(5): print(i)', program mencetak '0 1 2 3 4'",
+        "level": "medium",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 30,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 93",
+        "sub-theme": "Debugging Program Python",
+        "judul": "Menganalisis dan Memperbaiki Kesalahan Program Python",
+        "soal": "Diberikan sebuah potongan program Python yang mengandung kesalahan sintaks atau logika. Identifikasi letak kesalahan, jelaskan penyebabnya, kemudian perbaiki program hingga dapat dijalankan dengan benar.",
+        "expected_output": "Kode awal 'if nilai = 100:' menghasilkan SyntaxError karena menggunakan '=' bukan '=='; setelah diperbaiki menjadi 'if nilai == 100:', program mencetak 'Sempurna' untuk input nilai=100",
+        "level": "medium",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 31,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 55 (AP-K10-07)",
+        "sub-theme": "Algoritma Pemrograman - Percabangan Bersarang (Nested If)",
+        "judul": "Program Kelulusan Peserta Didik",
+        "soal": "Buatlah program (algoritma/kode) otomatis untuk menentukan kelulusan peserta didik berdasarkan nilai akhir dan persentase kehadiran, dengan ketentuan:\n(a) nilai akhir minimal 75;\n(b) kehadiran minimal 80%;\n(c) jika nilai antara 70-74, peserta didik tetap dinyatakan lulus apabila kehadiran di atas 90%;\n(d) jika salah satu syarat tidak terpenuhi, peserta didik dinyatakan tidak lulus.\nSusun algoritmanya (nested if), lalu uji coba dengan beberapa nilai contoh.",
+        "expected_output": "Program mencetak status 'Lulus' atau 'Tidak Lulus' sesuai kombinasi input nilai akhir dan kehadiran. Contoh: nilai=80, kehadiran=85% -> 'Lulus'; nilai=72, kehadiran=95% -> 'Lulus' (aturan pengecualian); nilai=72, kehadiran=85% -> 'Tidak Lulus'.",
+        "level": "medium"
+    },
+    {
+        "id": 32,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 55-56 (AP-K10-08)",
+        "sub-theme": "Algoritma Pemrograman - Pengurutan Data (Sorting)",
+        "judul": "Mengurutkan Data Array dengan Selection Sort",
+        "soal": "Buatlah program untuk mengurutkan data secara otomatis dari data array berikut: [15, 25, 13, 5, 30, 40, 7]. Simulasikan dan catat setiap langkah pengurutan menggunakan algoritma Selection Sort. Kemudian ubah salah satu elemen array menjadi [1, 25, 13, 5, 2, 40, 7] dan analisis apakah langkah simulasi sebelumnya masih bisa langsung diterapkan.",
+        "expected_output": "[15, 25, 13, 5, 30, 40, 7] menjadi [5, 7, 13, 15, 25, 30, 40]",
+        "level": "hard"
+    },
+    {
+        "id": 33,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 78-79 (AP-K10-09)",
+        "sub-theme": "Pemrograman Python - Percabangan",
+        "judul": "Program Mengenali Bentuk Persegi Panjang atau Persegi (Sama Sisi)",
+        "soal": "Buatlah program Python yang menerima input panjang dan lebar suatu bidang, lalu memeriksa apakah nilai panjang sama dengan lebar. Jika sama, tampilkan 'sama sisi'; jika tidak, tampilkan 'persegi panjang'.",
+        "expected_output": "Input panjang=10, lebar=10 -> output: 'sama sisi'. Input panjang=10, lebar=5 -> output: 'persegi panjang'.",
+        "level": "medium"
+    },
+    {
+        "id": 34,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 80-82 (AP-K10-09)",
+        "sub-theme": "Pemrograman Python - Operasi Aritmatika",
+        "judul": "Program Menampilkan Umur dan Tahun Lahir",
+        "soal": "Buatlah program Python yang menerima input nama dan umur pengguna, lalu menghitung tahun lahir dengan rumus tahun lahir = 2025 - umur, dan menampilkan pesan 'Halo, <nama>, kamu lahir tahun <tahunlahir>.'",
+        "expected_output": "Input nama='Rani', umur=16 -> output: 'Halo, Rani, kamu lahir tahun 2009.'",
+        "level": "medium"
+    },
+    {
+        "id": 35,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 93 (AP-K10-10)",
+        "sub-theme": "Debugging Kode Program",
+        "judul": "Menemukan dan Memperbaiki Kesalahan pada Kode Python",
+        "soal": "Diberikan potongan kode Python berikut yang mengandung kesalahan:\nusia = int(input(\"Masukkan usia anda: \"))\nprint(f\"Usia anda adalah {} tahun\", usia)",
+        "expected_output": "Setelah diperbaiki menjadi print(f\"Usia anda adalah {usia} tahun\"), untuk input usia=16, program mencetak 'Usia anda adalah 16 tahun'",
+        "level": "medium"
+    },
+    {
+        "id": 36,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 100-101 (AP-K10-12)",
+        "sub-theme": "Pemrograman Python - Rule Based / If-Then",
+        "judul": "Membuat Chatbot Sederhana Asisten Sekolah",
+        "soal": "Buatlah program chatbot sederhana berbasis Python (di OnlineGDB) menggunakan logika if-then untuk menjawab pertanyaan umum seputar sekolah seperti jadwal pelajaran, guru pengampu, dan waktu istirahat berdasarkan kata kunci. Uji chatbot dengan pertanyaan: 'Siapa nama gurumu?', 'Halo', 'Kapan waktu istirahat?', dan 'Keluar'.",
+        "expected_output": "'Halo' -> 'Halo! Ada yang bisa saya bantu?'; 'Kapan waktu istirahat?' -> 'Istirahat pukul 09:30-10:00'; 'Siapa nama gurumu?' -> 'Guru pengampu adalah Bu Sari'; 'Keluar' -> 'Sampai jumpa!' (program berhenti)",
+        "level": "medium"
+    },
+    {
+        "id": 37,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Fungsi dan Lambda",
+        "judul": "Menghitung Kuadrat Setiap Elemen List",
+        "soal": "Buatlah sebuah fungsi Python yang menerima sebuah list berisi bilangan bulat, kemudian mengembalikan list baru yang berisi kuadrat dari setiap elemen menggunakan fungsi lambda.",
+        "expected_output": "Contoh: input [1, 2, 3, 4] -> output [1, 4, 9, 16]",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 38,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Fungsi",
+        "judul": "Menghitung Jumlah Kuadrat Bilangan",
+        "soal": "Buatlah fungsi Python yang menerima sebuah list angka dan mengembalikan jumlah kuadrat dari seluruh angka di dalam list.",
+        "expected_output": "Contoh: input [1, 2, 3] -> output 14",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 39,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Sorting List",
+        "judul": "Mengurutkan Daftar String",
+        "soal": "Buatlah program Python yang mengurutkan sebuah list berisi string secara alfabet menggunakan fungsi bawaan Python.",
+        "expected_output": "Contoh: input ['jeruk', 'apel', 'mangga'] -> output ['apel', 'jeruk', 'mangga']",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 40,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Linked List",
+        "judul": "Membuat Singly Linked List",
+        "soal": "Buatlah implementasi Singly Linked List sederhana menggunakan Python yang memiliki kelas Node dan Linked List serta dapat menambahkan node baru ke akhir list.",
+        "expected_output": "Contoh: input tambah node 10, 20, 30 -> output 10 -> 20 -> 30",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 41,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Array",
+        "judul": "Mengacak Urutan Elemen Array",
+        "soal": "Buatlah program Python yang mengacak urutan elemen dalam sebuah array menggunakan modul random.",
+        "expected_output": "Contoh: input [1, 2, 3, 4, 5] -> output [3, 1, 5, 2, 4] (urutan dapat berbeda setiap dijalankan)",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 42,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Debugging Python",
+        "judul": "Memperbaiki Program Daftar Hari",
+        "soal": "Perbaiki program Python yang diberikan sehingga dapat menampilkan tujuh hari dalam seminggu dengan ejaan yang benar.",
+        "expected_output": "Contoh: output Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 43,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Percabangan",
+        "judul": "Membuat Kalkulator Sederhana",
+        "soal": "Buatlah program kalkulator sederhana menggunakan Python yang dapat melakukan operasi penjumlahan, pengurangan, perkalian, dan pembagian berdasarkan operator yang dimasukkan pengguna.",
+        "expected_output": "Contoh: input 12, '+', 8 -> output 20",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 44,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Percabangan",
+        "judul": "Menentukan Bilangan Terbesar",
+        "soal": "Buatlah fungsi Python yang menerima dua buah bilangan sebagai parameter kemudian mengembalikan nilai yang paling besar.",
+        "expected_output": "Contoh: input 15 dan 27 -> output 27",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 45,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Konversi Bilangan",
+        "judul": "Konversi Bilangan ke Angka Romawi",
+        "soal": "Buatlah program Python yang mengubah sebuah bilangan bulat positif menjadi representasi angka Romawi.",
+        "expected_output": "Contoh: input 14 -> output XIV",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 46,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Fungsi",
+        "judul": "Menampilkan Nilai Kuadrat Bilangan",
+        "soal": "Buatlah program Python yang menerima sebuah list bilangan kemudian menampilkan hasil kuadrat setiap bilangan menggunakan sebuah fungsi.",
+        "expected_output": "Contoh: input [2, 4, 6] -> output [4, 16, 36]",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 47,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Algoritma Greedy",
+        "judul": "Menentukan Biaya Minimum Menghubungkan Titik",
+        "soal": "Diberikan sekumpulan titik pada bidang dua dimensi. Buatlah program Python yang menggunakan algoritma greedy untuk menentukan total biaya minimum yang diperlukan agar seluruh titik saling terhubung.",
+        "expected_output": "Contoh: input [(0,0), (2,2), (3,10), (5,2), (7,0)] -> output 20",
+        "level": "hard",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 48,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Graph - Dijkstra",
+        "judul": "Menentukan Jalur Terpendek",
+        "soal": "Buatlah program Python yang mengimplementasikan algoritma Dijkstra untuk mencari jalur terpendek dari sebuah simpul awal ke seluruh simpul lainnya pada sebuah graf berbobot.",
+        "expected_output": "Contoh: input graf {A:{B:4,C:2}, B:{C:1,D:5}, C:{D:8,E:10}, D:{E:2}, E:{}} dan titik awal A -> output {'A':0,'B':4,'C':2,'D':9,'E':11}",
+        "level": "hard",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 49,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Dynamic Programming",
+        "judul": "Menentukan Nilai Maksimum Knapsack",
+        "soal": "Buatlah program Python menggunakan Dynamic Programming untuk menyelesaikan permasalahan 0/1 Knapsack dan menentukan nilai maksimum yang dapat dibawa tanpa melebihi kapasitas tas.",
+        "expected_output": "Contoh: input bobot [10,20,30], nilai [60,100,120], kapasitas 50 -> output 220",
+        "level": "hard",
+        "hints": [
+        "code"
+        ]
+    },
+    {
+        "id": 50,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "Kaggle Dataset",
+        "sub-theme": "Backtracking",
+        "judul": "Menyelesaikan Sudoku",
+        "soal": "Buatlah program Python yang menggunakan algoritma backtracking untuk menyelesaikan sebuah papan Sudoku berukuran 9×9 yang belum lengkap.",
+        "expected_output": "Contoh: input papan Sudoku yang belum lengkap -> output papan Sudoku yang telah terisi lengkap sesuai aturan permainan.",
+        "level": "hard",
+        "hints": [
+        "code"
+        ]
     }
 ]
