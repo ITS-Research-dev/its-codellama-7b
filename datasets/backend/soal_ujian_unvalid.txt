@@ -1,0 +1,82 @@
+{ //Berbentuk Kelompok
+    "id": 21,
+    "checked": true,
+    "source_valid": "valid",
+    "reference": "AI_REF_1 Hal 129-130",
+    "sub-theme": "Algoritma Pengurutan - Bubble/Quick/Merge Sort (Python)",
+    "judul": "Studi Kasus: Menyusun dan Mengurutkan Data dalam Berbagai Konteks",
+    "soal": "Pilih satu skenario (Ranking Nilai Ujian, Daftar Kehadiran, Produk E-Commerce, Kartu Remi, atau Peringkat Atlet), tentukan algoritma sorting (Bubble Sort/Quick Sort/Merge Sort) yang paling tepat untuk skenario tersebut dengan alasan efisiensinya.",
+    "expected_output": "Data nilai ujian [78, 65, 90, 82, 71] diurutkan naik menjadi [65, 71, 78, 82, 90]; waktu eksekusi Bubble Sort = 0.0021 detik, Quick Sort = 0.0004 detik untuk 1000 data (Quick Sort lebih efisien).",
+    "level": "hard"
+},
+
+ { //Memerlukan Flowchart dsb
+        "id": 27,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_2 Hal 79",
+        "sub-theme": "Pemrograman Berbasis Teks - Python",
+        "judul": "Praktikum: Membuat Program Python Sederhana",
+        "soal": "Buatlah program menggunakan bahasa pemrograman Python berdasarkan algoritma atau flowchart yang telah dibuat sebelumnya. Program harus dapat menerima masukan, memproses data sesuai logika algoritma, kemudian menampilkan hasilnya.",
+        "expected_output": "Contoh: input daftar harga belanja [5000, 7000, 3000] -> output 'Total belanja: 15000'",
+        "level": "easy",
+        "hints": [
+        "code"
+        ]
+    },
+{ //Pembahasan diluar bentuk Studi Kasus
+        "id": 28,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_2 Hal 82",
+        "sub-theme": "Debugging Program Python",
+        "judul": "Praktikum: Analisis Kesalahan Program Python",
+        "soal": "Diberikan sebuah potongan program Python yang mengandung kesalahan sintaks maupun logika. Identifikasi letak kesalahan, jelaskan penyebabnya, kemudian perbaiki agar program dapat dijalankan dengan benar.",
+        "expected_output": "Kode awal 'print(hasil)' tanpa mendefinisikan variabel 'hasil' menghasilkan NameError; setelah diperbaiki menjadi 'hasil = 10 + 5' lalu 'print(hasil)', program mencetak '15'",
+        "level": "medium",
+        "hints": [
+        "code"
+        ]
+    },
+
+     { //Memerlukan Pasangan dan lebih fokus membahas Debugging
+        "id": 29,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_2 Hal 83",
+        "sub-theme": "Debugging Program Python",
+        "judul": "Praktikum Berpasangan: Memperbaiki Program Python",
+        "soal": "Secara berpasangan, analisis sebuah program Python yang mengalami kesalahan. Diskusikan penyebab bug, lakukan debugging, kemudian jalankan kembali program hingga menghasilkan keluaran yang benar.",
+        "expected_output": "Kode awal 'for i in range(5) print(i)' menghasilkan SyntaxError karena tidak ada tanda titik dua; setelah diperbaiki menjadi 'for i in range(5): print(i)', program mencetak '0 1 2 3 4'",
+        "level": "medium",
+        "hints": [
+        "code"
+        ]
+    },
+
+{ //Fokus kepada Debugging Kode
+    "id": 30,
+    "checked": true,
+    "source_valid": "valid",
+    "reference": "AI_REF_3 Hal 93",
+    "sub-theme": "Debugging Program Python",
+    "judul": "Menganalisis dan Memperbaiki Kesalahan Program Python",
+    "soal": "Diberikan sebuah potongan program Python yang mengandung kesalahan sintaks atau logika. Identifikasi letak kesalahan, jelaskan penyebabnya, kemudian perbaiki program hingga dapat dijalankan dengan benar.",
+    "expected_output": "Kode awal 'if nilai = 100:' menghasilkan SyntaxError karena menggunakan '=' bukan '=='; setelah diperbaiki menjadi 'if nilai == 100:', program mencetak 'Sempurna' untuk input nilai=100",
+    "level": "medium",
+    "hints": [
+    "code"
+    ]
+},
+
+{ //Fokus kepada Debugging Kode
+        "id": 35,
+        "checked": true,
+        "source_valid": "valid",
+        "reference": "AI_REF_3 Hal 94 (AP-K10-10)",
+        "sub-theme": "Debugging Kode Program",
+        "judul": "Menemukan dan Memperbaiki Kesalahan pada Kode Python",
+        "soal": "Diberikan potongan kode Python berikut yang mengandung kesalahan:\nusia = int(input(\"Masukkan usia anda: \"))\nprint(f\"Usia anda adalah {} tahun\", usia)",
+        "expected_output": "Setelah diperbaiki menjadi print(f\"Usia anda adalah {usia} tahun\"), untuk input usia=16, program mencetak 'Usia anda adalah 16 tahun'",
+        "level": "medium"
+    },
