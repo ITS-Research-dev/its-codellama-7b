@@ -1,10 +1,358 @@
 {
   "soal_1": {
-    "pertanyaan": "Buat fungsi penjumlahan dua angka dalam Python",
+    "pertanyaan": "Buat fungsi python untuk menghitung luas lingkaran jika diketahui jari-jarinya. Gunakan phi 3.14.",
     "hints": {
-      "1": "Hint 1 (Pseudo): Coba pikirkan bagaimana cara mendefinisikan fungsi menggunakan kata kunci 'def'.",
-      "2": "Hint 2 (Cloze Code): Coba lengkapi bagian ini: def tambah(a, b): return ___",
-      "3": "Hint 3 (Basic Code): Gunakan struktur return a + b untuk menjumlahkan variabel tersebut."
+      "1": "MULAI\nDEFINISI FUNGSI luas_lingkaran(r)\n    phi <- 3.14\n    luas <- phi * r * r\n    KEMBALIKAN luas\nAKHIR FUNGSI\n\nr <- 10\nhasil <- PANGGIL luas_lingkaran(r)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def luas_lingkaran(r):\n    phi = ____\n    luas = phi * ____ * ____\n    return ____\n\nr = 10\nhasil = luas_lingkaran(r)\nprint(\"luas =\", hasil)",
+      "3": "def luas_lingkaran(r):\n    phi = 3.14\n    luas = phi * r * r\n    return luas\n\nr = 10\nhasil = luas_lingkaran(r)\nprint(\"luas =\", hasil)"
+    }
+  },
+  "soal_2": {
+    "pertanyaan": "Buat fungsi untuk mengecek apakah sebuah angka adalah ganjil atau genap.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI cek_ganjil_genap(angka)\n    JIKA angka MOD 2 == 0 MAKA\n        KEMBALIKAN \"Genap\"\n    JIKA TIDAK\n        KEMBALIKAN \"Ganjil\"\nAKHIR FUNGSI\n\nangka <- 7\nhasil <- PANGGIL cek_ganjil_genap(angka)\nTAMPILKAN \"Angka\", angka, \"adalah\", hasil\nSELESAI",
+      "2": "def cek_ganjil_genap(angka):\n    if angka % ____ == 0:\n        return \"____\"\n    else:\n        return \"____\"\n\nangka = 7\nhasil = cek_ganjil_genap(angka)\nprint(\"Angka\", angka, \"adalah\", hasil)",
+      "3": "def cek_ganjil_genap(angka):\n    if angka % 2 == 0:\n        return \"Genap\"\n    else:\n        return \"Ganjil\"\n\nangka = 7\nhasil = cek_ganjil_genap(angka)\nprint(\"Angka\", angka, \"adalah\", hasil)"
+    }
+  },
+  "soal_3": {
+    "pertanyaan": "Buat fungsi untuk menjumlahkan dua angka.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI jumlah(a, b)\n    KEMBALIKAN a + b\nAKHIR FUNGSI\n\na <- 3\nb <- 5\nhasil <- PANGGIL jumlah(a, b)\nTAMPILKAN \"Hasil penjumlahan\", a, \"+\", b, \"=\", hasil\nSELESAI",
+      "2": "def jumlah(a, b):\n    return ____ + ____\n\na = 3\nb = 5\nhasil = jumlah(a, b)\nprint(\"Hasil penjumlahan\", a, \"+\", b, \"=\", hasil)",
+      "3": "def jumlah(a, b):\n    return a + b\n\na = 3\nb = 5\nhasil = jumlah(a, b)\nprint(\"Hasil penjumlahan\", a, \"+\", b, \"=\", hasil)"
+    }
+  },
+  "soal_4": {
+    "pertanyaan": "Buat fungsi untuk menghitung luas persegi jika diketahui sisi.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI luas_persegi(sisi)\n    luas <- sisi * sisi\n    KEMBALIKAN luas\nAKHIR FUNGSI\n\nsisi <- 4\nhasil <- PANGGIL luas_persegi(sisi)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def luas_persegi(sisi):\n    luas = ____ * ____\n    return ____\n\nsisi = 4\nhasil = luas_persegi(sisi)\nprint(\"luas =\", hasil)",
+      "3": "def luas_persegi(sisi):\n    luas = sisi * sisi\n    return luas\n\nsisi = 4\nhasil = luas_persegi(sisi)\nprint(\"luas =\", hasil)"
+    }
+  },
+  "soal_5": {
+    "pertanyaan": "Buat fungsi untuk menghitung keliling persegi.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI keliling_persegi(sisi)\n    keliling <- 4 * sisi\n    KEMBALIKAN keliling\nAKHIR FUNGSI\n\nsisi <- 4\nhasil <- PANGGIL keliling_persegi(sisi)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def keliling_persegi(sisi):\n    keliling = ____ * ____\n    return ____\n\nsisi = 4\nhasil = keliling_persegi(sisi)\nprint(\"keliling =\", hasil)",
+      "3": "def keliling_persegi(sisi):\n    keliling = 4 * sisi\n    return keliling\n\nsisi = 4\nhasil = keliling_persegi(sisi)\nprint(\"keliling =\", hasil)"
+    }
+  },
+  "soal_6": {
+    "pertanyaan": "Buat fungsi untuk mengkonversi suhu dari Celcius ke Fahrenheit.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI celcius_ke_fahrenheit(celcius)\n    fahrenheit <- celcius * 9/5 + 32\n    KEMBALIKAN fahrenheit\nAKHIR FUNGSI\n\ncelcius <- 30\nhasil <- PANGGIL celcius_ke_fahrenheit(celcius)\nTAMPILKAN celcius, \"°C =\", hasil, \"°F\"\nSELESAI",
+      "2": "def celcius_ke_fahrenheit(celcius):\n    fahrenheit = celcius * ____ / ____ + ____\n    return fahrenheit\n\ncelcius = 30\nhasil = celcius_ke_fahrenheit(celcius)\nprint(f\"{celcius}°C = {hasil}°F\")",
+      "3": "def celcius_ke_fahrenheit(celcius):\n    fahrenheit = celcius * 9/5 + 32\n    return fahrenheit\n\ncelcius = 30\nhasil = celcius_ke_fahrenheit(celcius)\nprint(f\"{celcius}°C = {hasil}°F\")"
+    }
+  },
+  "soal_7": {
+    "pertanyaan": "Buat fungsi untuk menentukan angka terbesar dari dua angka.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI bilangan_terbesar(a, b)\n    JIKA a > b MAKA\n        KEMBALIKAN a\n    JIKA TIDAK\n        KEMBALIKAN b\nAKHIR FUNGSI\n\na <- 10\nb <- 7\nhasil <- PANGGIL bilangan_terbesar(a, b)\nTAMPILKAN \"Angka terbesar dari\", a, \"dan\", b, \"adalah\", hasil\nSELESAI",
+      "2": "def bilangan_terbesar(a, b):\n    if a ____ b:\n        return ____\n    else:\n        return ____\n\na = 10\nb = 7\nhasil = bilangan_terbesar(a, b)\nprint(\"Angka terbesar dari\", a, \"dan\", b, \"adalah\", hasil)",
+      "3": "def bilangan_terbesar(a, b):\n    if a > b:\n        return a\n    else:\n        return b\n\na = 10\nb = 7\nhasil = bilangan_terbesar(a, b)\nprint(\"Angka terbesar dari\", a, \"dan\", b, \"adalah\", hasil)"
+    }
+  },
+  "soal_8": {
+    "pertanyaan": "Buat fungsi untuk menghitung jumlah karakter dalam sebuah string.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI panjang_string(teks)\n    KEMBALIKAN PANJANG(teks)\nAKHIR FUNGSI\n\nteks <- \"Python\"\nhasil <- PANGGIL panjang_string(teks)\nTAMPILKAN \"Panjang string\", teks, \"adalah\", hasil\nSELESAI",
+      "2": "def panjang_string(teks):\n    return ____(teks)\n\nteks = \"Python\"\nhasil = panjang_string(teks)\nprint(\"Panjang string\", f\"'{teks}'\", \"adalah\", hasil)",
+      "3": "def panjang_string(teks):\n    return len(teks)\n\nteks = \"Python\"\nhasil = panjang_string(teks)\nprint(\"Panjang string\", f\"'{teks}'\", \"adalah\", hasil)"
+    }
+  },
+  "soal_9": {
+    "pertanyaan": "Buat fungsi untuk membalik sebuah string.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI balik_string(teks)\n    KEMBALIKAN BALIK(teks)\nAKHIR FUNGSI\n\nteks <- \"Python\"\nhasil <- PANGGIL balik_string(teks)\nTAMPILKAN teks, \"dibalik menjadi\", hasil\nSELESAI",
+      "2": "def balik_string(teks):\n    return teks[____]\n\nteks = \"Python\"\nhasil = balik_string(teks)\nprint(f\"'{teks}' dibalik menjadi '{hasil}'\")",
+      "3": "def balik_string(teks):\n    return teks[::-1]\n\nteks = \"Python\"\nhasil = balik_string(teks)\nprint(f\"'{teks}' dibalik menjadi '{hasil}'\")"
+    }
+  },
+  "soal_10": {
+    "pertanyaan": "Buat fungsi untuk menghitung faktorial dari sebuah angka.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI faktorial(n)\n    hasil <- 1\n    UNTUK i DARI 1 SAMPAI n LAKUKAN\n        hasil <- hasil * i\n    KEMBALIKAN hasil\nAKHIR FUNGSI\n\nn <- 5\nhasil <- PANGGIL faktorial(n)\nTAMPILKAN \"Faktorial\", n, \"adalah\", hasil\nSELESAI",
+      "2": "def faktorial(n):\n    hasil = ____\n    for i in range(1, n + 1):\n        hasil = hasil * ____\n    return hasil\n\nn = 5\nhasil = faktorial(n)\nprint(\"Faktorial\", n, \"adalah\", hasil)",
+      "3": "def faktorial(n):\n    hasil = 1\n    for i in range(1, n + 1):\n        hasil = hasil * i\n    return hasil\n\nn = 5\nhasil = faktorial(n)\nprint(\"Faktorial\", n, \"adalah\", hasil)"
+    }
+  },
+  "soal_11": {
+    "pertanyaan": "Buat program untuk menampilkan angka dari 1 sampai 10 menggunakan perulangan.",
+    "hints": {
+      "1": "MULAI\nUNTUK i DARI 1 SAMPAI 10 LAKUKAN\n    TAMPILKAN i\nSELESAI",
+      "2": "for i in range(____, ____):\n    print(i, end=\" \")",
+      "3": "for i in range(1, 11):\n    print(i, end=\" \")"
+    }
+  },
+  "soal_12": {
+    "pertanyaan": "Buat fungsi untuk menjumlahkan semua angka dalam sebuah list.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI jumlah_list(data)\n    total <- 0\n    UNTUK SETIAP angka DALAM data LAKUKAN\n        total <- total + angka\n    KEMBALIKAN total\nAKHIR FUNGSI\n\ndata <- [1, 2, 3, 4]\nhasil <- PANGGIL jumlah_list(data)\nTAMPILKAN \"Jumlah\", data, \"adalah\", hasil\nSELESAI",
+      "2": "def jumlah_list(data):\n    total = ____\n    for angka in data:\n        total = total + ____\n    return total\n\ndata = [1, 2, 3, 4]\nhasil = jumlah_list(data)\nprint(\"Jumlah\", data, \"adalah\", hasil)",
+      "3": "def jumlah_list(data):\n    total = 0\n    for angka in data:\n        total = total + angka\n    return total\n\ndata = [1, 2, 3, 4]\nhasil = jumlah_list(data)\nprint(\"Jumlah\", data, \"adalah\", hasil)"
+    }
+  },
+  "soal_13": {
+    "pertanyaan": "Buat fungsi untuk mencari nilai terbesar dalam list.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI nilai_terbesar(data)\n    terbesar <- data[0]\n    UNTUK SETIAP angka DALAM data LAKUKAN\n        JIKA angka > terbesar MAKA\n            terbesar <- angka\n    KEMBALIKAN terbesar\nAKHIR FUNGSI\n\ndata <- [2, 5, 1, 9]\nhasil <- PANGGIL nilai_terbesar(data)\nTAMPILKAN \"Nilai terbesar dari\", data, \"adalah\", hasil\nSELESAI",
+      "2": "def nilai_terbesar(data):\n    terbesar = data[____]\n    for angka in data:\n        if angka ____ terbesar:\n            terbesar = angka\n    return terbesar\n\ndata = [2, 5, 1, 9]\nhasil = nilai_terbesar(data)\nprint(\"Nilai terbesar dari\", data, \"adalah\", hasil)",
+      "3": "def nilai_terbesar(data):\n    terbesar = data[0]\n    for angka in data:\n        if angka > terbesar:\n            terbesar = angka\n    return terbesar\n\ndata = [2, 5, 1, 9]\nhasil = nilai_terbesar(data)\nprint(\"Nilai terbesar dari\", data, \"adalah\", hasil)"
+    }
+  },
+  "soal_14": {
+    "pertanyaan": "Buat fungsi untuk mengecek apakah sebuah kata adalah palindrome.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI cek_palindrome(kata)\n    JIKA kata == BALIK(kata) MAKA\n        KEMBALIKAN \"adalah palindrome\"\n    JIKA TIDAK\n        KEMBALIKAN \"bukan palindrome\"\nAKHIR FUNGSI\n\nkata <- \"katak\"\nhasil <- PANGGIL cek_palindrome(kata)\nTAMPILKAN kata, hasil\nSELESAI",
+      "2": "def cek_palindrome(kata):\n    if kata == kata[____]:\n        return \"____\"\n    else:\n        return \"bukan palindrome\"\n\nkata = \"katak\"\nhasil = cek_palindrome(kata)\nprint(f\"'{kata}' {hasil}\")",
+      "3": "def cek_palindrome(kata):\n    if kata == kata[::-1]:\n        return \"adalah palindrome\"\n    else:\n        return \"bukan palindrome\"\n\nkata = \"katak\"\nhasil = cek_palindrome(kata)\nprint(f\"'{kata}' {hasil}\")"
+    }
+  },
+  "soal_15": {
+    "pertanyaan": "Buat fungsi untuk menghitung rata-rata dari list angka.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI rata_rata(data)\n    total <- JUMLAH(data)\n    jumlah_data <- PANJANG(data)\n    hasil <- total / jumlah_data\n    KEMBALIKAN hasil\nAKHIR FUNGSI\n\ndata <- [2, 4, 6, 8]\nhasil <- PANGGIL rata_rata(data)\nTAMPILKAN \"Rata-rata\", data, \"adalah\", hasil\nSELESAI",
+      "2": "def rata_rata(data):\n    total = sum(data)\n    jumlah_data = len(data)\n    hasil = ____ / ____\n    return hasil\n\ndata = [2, 4, 6, 8]\nhasil = rata_rata(data)\nprint(\"Rata-rata\", data, \"adalah\", hasil)",
+      "3": "def rata_rata(data):\n    total = sum(data)\n    jumlah_data = len(data)\n    hasil = total / jumlah_data\n    return hasil\n\ndata = [2, 4, 6, 8]\nhasil = rata_rata(data)\nprint(\"Rata-rata\", data, \"adalah\", hasil)"
+    }
+  },
+  "soal_16": {
+    "pertanyaan": "Buat fungsi untuk mengkonversi detik ke menit.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI detik_ke_menit(detik)\n    menit <- detik / 60\n    KEMBALIKAN menit\nAKHIR FUNGSI\n\ndetik <- 120\nhasil <- PANGGIL detik_ke_menit(detik)\nTAMPILKAN detik, \"detik =\", hasil, \"menit\"\nSELESAI",
+      "2": "def detik_ke_menit(detik):\n    menit = detik / ____\n    return menit\n\ndetik = 120\nhasil = detik_ke_menit(detik)\nprint(detik, \"detik =\", hasil, \"menit\")",
+      "3": "def detik_ke_menit(detik):\n    menit = detik / 60\n    return menit\n\ndetik = 120\nhasil = detik_ke_menit(detik)\nprint(detik, \"detik =\", hasil, \"menit\")"
+    }
+  },
+  "soal_17": {
+    "pertanyaan": "Buat fungsi untuk menghapus semua spasi dalam string.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI hapus_spasi(teks)\n    KEMBALIKAN GANTI(teks, \" \", \"\")\nAKHIR FUNGSI\n\nteks <- \"halo dunia\"\nhasil <- PANGGIL hapus_spasi(teks)\nTAMPILKAN teks, \"menjadi\", hasil\nSELESAI",
+      "2": "def hapus_spasi(teks):\n    return teks.replace(\"____\", \"____\")\n\nteks = \"halo dunia\"\nhasil = hapus_spasi(teks)\nprint(f\"'{teks}' menjadi '{hasil}'\")",
+      "3": "def hapus_spasi(teks):\n    return teks.replace(\" \", \"\")\n\nteks = \"halo dunia\"\nhasil = hapus_spasi(teks)\nprint(f\"'{teks}' menjadi '{hasil}'\")"
+    }
+  },
+  "soal_18": {
+    "pertanyaan": "Buat fungsi untuk menghitung jumlah huruf vokal dalam sebuah string.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI hitung_vokal(teks)\n    vokal <- \"aeiou\"\n    jumlah <- 0\n    UNTUK SETIAP huruf DALAM teks LAKUKAN\n        JIKA huruf ADA_DI vokal MAKA\n            jumlah <- jumlah + 1\n    KEMBALIKAN jumlah\nAKHIR FUNGSI\n\nteks <- \"python\"\nhasil <- PANGGIL hitung_vokal(teks)\nTAMPILKAN \"Jumlah vokal dalam\", teks, \"adalah\", hasil\nSELESAI",
+      "2": "def hitung_vokal(teks):\n    vokal = \"____\"\n    jumlah = 0\n    for huruf in teks:\n        if huruf in vokal:\n            jumlah = jumlah + ____\n    return jumlah\n\nteks = \"python\"\nhasil = hitung_vokal(teks)\nprint(\"Jumlah vokal dalam\", f\"'{teks}'\", \"adalah\", hasil)",
+      "3": "def hitung_vokal(teks):\n    vokal = \"aeiou\"\n    jumlah = 0\n    for huruf in teks:\n        if huruf in vokal:\n            jumlah = jumlah + 1\n    return jumlah\n\nteks = \"python\"\nhasil = hitung_vokal(teks)\nprint(\"Jumlah vokal dalam\", f\"'{teks}'\", \"adalah\", hasil)"
+    }
+  },
+  "soal_19": {
+    "pertanyaan": "Buat fungsi untuk menentukan apakah sebuah tahun adalah tahun kabisat.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI cek_kabisat(tahun)\n    JIKA (tahun MOD 4 == 0 DAN tahun MOD 100 != 0) ATAU tahun MOD 400 == 0 MAKA\n        KEMBALIKAN \"adalah tahun kabisat\"\n    JIKA TIDAK\n        KEMBALIKAN \"bukan tahun kabisat\"\nAKHIR FUNGSI\n\ntahun <- 2024\nhasil <- PANGGIL cek_kabisat(tahun)\nTAMPILKAN \"Tahun\", tahun, hasil\nSELESAI",
+      "2": "def cek_kabisat(tahun):\n    if tahun % ____ == 0 and tahun % ____ != 0 or tahun % ____ == 0:\n        return \"adalah tahun kabisat\"\n    else:\n        return \"bukan tahun kabisat\"\n\ntahun = 2024\nhasil = cek_kabisat(tahun)\nprint(\"Tahun\", tahun, hasil)",
+      "3": "def cek_kabisat(tahun):\n    if tahun % 4 == 0 and tahun % 100 != 0 or tahun % 400 == 0:\n        return \"adalah tahun kabisat\"\n    else:\n        return \"bukan tahun kabisat\"\n\ntahun = 2024\nhasil = cek_kabisat(tahun)\nprint(\"Tahun\", tahun, hasil)"
+    }
+  },
+  "soal_20": {
+    "pertanyaan": "Buat fungsi untuk mengurutkan list angka secara ascending.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI urutkan_list(data)\n    hasil <- URUTKAN(data)\n    KEMBALIKAN hasil\nAKHIR FUNGSI\n\ndata <- [3, 1, 4, 2]\nhasil <- PANGGIL urutkan_list(data)\nTAMPILKAN data, \"menjadi\", hasil\nSELESAI",
+      "2": "def urutkan_list(data):\n    hasil = ____(data)\n    return hasil\n\ndata = [3, 1, 4, 2]\nhasil = urutkan_list(data)\nprint(data, \"menjadi\", hasil)",
+      "3": "def urutkan_list(data):\n    hasil = sorted(data)\n    return hasil\n\ndata = [3, 1, 4, 2]\nhasil = urutkan_list(data)\nprint(data, \"menjadi\", hasil)"
+    }
+  },
+
+  "soal_22": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_23": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_24": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_25": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_31": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_31": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_32": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_33": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_34": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+  "soal_36": {
+    "pertanyaan": "Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.",
+    "hints": {
+      "1": "",
+      "2": "",
+      "3": ""
+    }
+  },
+
+
+
+  "soal_37": {
+    "pertanyaan": "Buatlah sebuah fungsi Python yang menerima sebuah list berisi bilangan bulat, kemudian mengembalikan list baru yang berisi kuadrat dari setiap elemen menggunakan fungsi lambda.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI kuadrat_list(data)\n    KEMBALIKAN PETAKAN(LAMBDA x: x pangkat 2, data) SEBAGAI LIST\nAKHIR FUNGSI\n\ndata <- [1, 2, 3, 4]\nhasil <- PANGGIL kuadrat_list(data)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def kuadrat_list(data):\n    return list(map(____, data))\n\ndata = [1, 2, 3, 4]\nhasil = kuadrat_list(data)\nprint(hasil)",
+      "3": "def kuadrat_list(data):\n    return list(map(lambda x: x**2, data))\n\ndata = [1, 2, 3, 4]\nhasil = kuadrat_list(data)\nprint(hasil)"
+    }
+  },
+  "soal_38": {
+    "pertanyaan": "Buatlah fungsi Python yang menerima sebuah list angka dan mengembalikan jumlah kuadrat dari seluruh angka di dalam list.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI jumlah_kuadrat(data)\n    total <- 0\n    UNTUK SETIAP angka DALAM data LAKUKAN\n        total <- total + (angka pangkat 2)\n    KEMBALIKAN total\nAKHIR FUNGSI\n\ndata <- [1, 2, 3]\nhasil <- PANGGIL jumlah_kuadrat(data)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def jumlah_kuadrat(data):\n    return sum(x ____ for x in data)\n\ndata = [1, 2, 3]\nhasil = jumlah_kuadrat(data)\nprint(hasil)",
+      "3": "def jumlah_kuadrat(data):\n    return sum(x**2 for x in data)\n\ndata = [1, 2, 3]\nhasil = jumlah_kuadrat(data)\nprint(hasil)"
+    }
+  },
+  "soal_39": {
+    "pertanyaan": "Buatlah program Python yang mengurutkan sebuah list berisi string secara alfabet menggunakan fungsi bawaan Python.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI urutkan_string(data)\n    KEMBALIKAN URUTKAN(data)\nAKHIR FUNGSI\n\ndata <- [\"jeruk\", \"apel\", \"mangga\"]\nhasil <- PANGGIL urutkan_string(data)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def urutkan_string(data):\n    return ____(data)\n\ndata = [\"jeruk\", \"apel\", \"mangga\"]\nhasil = urutkan_string(data)\nprint(hasil)",
+      "3": "def urutkan_string(data):\n    return sorted(data)\n\ndata = [\"jeruk\", \"apel\", \"mangga\"]\nhasil = urutkan_string(data)\nprint(hasil)"
+    }
+  },
+  "soal_40": {
+    "pertanyaan": "Buatlah implementasi Singly Linked List sederhana menggunakan Python yang memiliki kelas Node dan Linked List serta dapat menambahkan node baru ke akhir list.",
+    "hints": {
+      "1": "MULAI\nKELAS Node\n    ATRIBUT data, next\nAKHIR KELAS\n\nKELAS LinkedList\n    ATRIBUT head <- KOSONG\n\n    DEFINISI METODE tambah(data)\n        node_baru <- BUAT Node(data)\n        JIKA head KOSONG MAKA\n            head <- node_baru\n        JIKA TIDAK\n            current <- head\n            SELAMA current.next TIDAK KOSONG LAKUKAN\n                current <- current.next\n            current.next <- node_baru\n    AKHIR METODE\n\n    DEFINISI METODE tampilkan()\n        current <- head\n        SELAMA current TIDAK KOSONG LAKUKAN\n            TAMPILKAN current.data, \"->\"\n            current <- current.next\n    AKHIR METODE\nAKHIR KELAS\n\nll <- BUAT LinkedList()\nPANGGIL ll.tambah(10)\nPANGGIL ll.tambah(20)\nPANGGIL ll.tambah(30)\nPANGGIL ll.tampilkan()\nSELESAI",
+      "2": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def tambah(self, data):\n        node_baru = Node(data)\n        if self.head is None:\n            self.head = node_baru\n        else:\n            current = self.head\n            while current.next:\n                current = current.next\n            current.next = ____\n\n    def tampilkan(self):\n        current = self.head\n        hasil = []\n        while current:\n            hasil.append(str(current.data))\n            current = current.next\n        print(\" -> \".join(hasil))\n\nll = LinkedList()\nll.tambah(10)\nll.tambah(20)\nll.tambah(____)\nll.tampilkan()",
+      "3": "class Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\nclass LinkedList:\n    def __init__(self):\n        self.head = None\n\n    def tambah(self, data):\n        node_baru = Node(data)\n        if self.head is None:\n            self.head = node_baru\n        else:\n            current = self.head\n            while current.next:\n                current = current.next\n            current.next = node_baru\n\n    def tampilkan(self):\n        current = self.head\n        hasil = []\n        while current:\n            hasil.append(str(current.data))\n            current = current.next\n        print(\" -> \".join(hasil))\n\nll = LinkedList()\nll.tambah(10)\nll.tambah(20)\nll.tambah(30)\nll.tampilkan()"
+    }
+  },
+  "soal_41": {
+    "pertanyaan": "Buatlah program Python yang mengacak urutan elemen dalam sebuah array menggunakan modul random.",
+    "hints": {
+      "1": "MULAI\nIMPOR random\n\nDEFINISI FUNGSI acak_array(data)\n    ACAK(data)\n    KEMBALIKAN data\nAKHIR FUNGSI\n\ndata <- [1, 2, 3, 4, 5]\nhasil <- PANGGIL acak_array(data)\nTAMPILKAN hasil\nSELESAI",
+      "2": "import random\n\ndef acak_array(data):\n    random.____(data)\n    return data\n\ndata = [1, 2, 3, 4, 5]\nhasil = acak_array(data)\nprint(hasil)",
+      "3": "import random\n\ndef acak_array(data):\n    random.shuffle(data)\n    return data\n\ndata = [1, 2, 3, 4, 5]\nhasil = acak_array(data)\nprint(hasil)"
+    }
+  },
+  "soal_42": {
+    "pertanyaan": "Perbaiki program Python yang diberikan sehingga dapat menampilkan tujuh hari dalam seminggu dengan ejaan yang benar.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI tampilkan_hari()\n    hari <- [\"Senin\", \"Selasa\", \"Rabu\", \"Kamis\", \"Jumat\", \"Sabtu\", \"Minggu\"]\n    TAMPILKAN GABUNG(hari, \", \")\nAKHIR FUNGSI\n\nPANGGIL tampilkan_hari()\nSELESAI",
+      "2": "def tampilkan_hari():\n    hari = [\"Senin\", \"____\", \"Rabu\", \"Kamis\", \"Jumat\", \"Sabtu\", \"____\"]\n    print(\", \".join(hari))\n\ntampilkan_hari()",
+      "3": "def tampilkan_hari():\n    hari = [\"Senin\", \"Selasa\", \"Rabu\", \"Kamis\", \"Jumat\", \"Sabtu\", \"Minggu\"]\n    print(\", \".join(hari))\n\ntampilkan_hari()"
+    }
+  },
+  "soal_43": {
+    "pertanyaan": "Buatlah program kalkulator sederhana menggunakan Python yang dapat melakukan operasi penjumlahan, pengurangan, perkalian, dan pembagian berdasarkan operator yang dimasukkan pengguna.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI kalkulator(a, b, operator)\n    JIKA operator == \"+\" MAKA\n        KEMBALIKAN a + b\n    JIKA TIDAK JIKA operator == \"-\" MAKA\n        KEMBALIKAN a - b\n    JIKA TIDAK JIKA operator == \"*\" MAKA\n        KEMBALIKAN a * b\n    JIKA TIDAK JIKA operator == \"/\" MAKA\n        KEMBALIKAN a / b\nAKHIR FUNGSI\n\na <- 12\nb <- 8\noperator <- \"+\"\nhasil <- PANGGIL kalkulator(a, b, operator)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def kalkulator(a, b, operator):\n    if operator == '+':\n        return a ____ b\n    elif operator == '-':\n        return a - b\n    elif operator == '*':\n        return a * b\n    elif operator == '/':\n        return a / b\n\na = 12\nb = 8\noperator = '____'\nhasil = kalkulator(a, b, operator)\nprint(hasil)",
+      "3": "def kalkulator(a, b, operator):\n    if operator == '+':\n        return a + b\n    elif operator == '-':\n        return a - b\n    elif operator == '*':\n        return a * b\n    elif operator == '/':\n        return a / b\n\na = 12\nb = 8\noperator = '+'\nhasil = kalkulator(a, b, operator)\nprint(hasil)"
+    }
+  },
+  "soal_44": {
+    "pertanyaan": "Buatlah fungsi Python yang menerima dua buah bilangan sebagai parameter kemudian mengembalikan nilai yang paling besar.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI bilangan_terbesar(a, b)\n    JIKA a > b MAKA\n        KEMBALIKAN a\n    JIKA TIDAK\n        KEMBALIKAN b\nAKHIR FUNGSI\n\na <- 15\nb <- 27\nhasil <- PANGGIL bilangan_terbesar(a, b)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def bilangan_terbesar(a, b):\n    if a > b:\n        return ____\n    else:\n        return ____\n\na = 15\nb = 27\nhasil = bilangan_terbesar(a, b)\nprint(hasil)",
+      "3": "def bilangan_terbesar(a, b):\n    if a > b:\n        return a\n    else:\n        return b\n\na = 15\nb = 27\nhasil = bilangan_terbesar(a, b)\nprint(hasil)"
+    }
+  },
+  "soal_45": {
+    "pertanyaan": "Buatlah program Python yang mengubah sebuah bilangan bulat positif menjadi representasi angka Romawi.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI ke_romawi(angka)\n    nilai <- [1000,900,500,400,100,90,50,40,10,9,5,4,1]\n    simbol <- [\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"]\n    hasil <- \"\"\n    i <- 0\n    SELAMA angka > 0 LAKUKAN\n        SELAMA angka >= nilai[i] LAKUKAN\n            hasil <- hasil GABUNG simbol[i]\n            angka <- angka - nilai[i]\n        i <- i + 1\n    KEMBALIKAN hasil\nAKHIR FUNGSI\n\nangka <- 14\nhasil <- PANGGIL ke_romawi(angka)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def ke_romawi(angka):\n    nilai = [1000,900,500,400,100,90,50,40,10,9,5,4,1]\n    simbol = [\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"]\n    hasil = \"\"\n    i = 0\n    while angka > 0:\n        while angka >= nilai[i]:\n            hasil += ____\n            angka -= ____\n        i += 1\n    return hasil\n\nangka = 14\nhasil = ke_romawi(angka)\nprint(hasil)",
+      "3": "def ke_romawi(angka):\n    nilai = [1000,900,500,400,100,90,50,40,10,9,5,4,1]\n    simbol = [\"M\",\"CM\",\"D\",\"CD\",\"C\",\"XC\",\"L\",\"XL\",\"X\",\"IX\",\"V\",\"IV\",\"I\"]\n    hasil = \"\"\n    i = 0\n    while angka > 0:\n        while angka >= nilai[i]:\n            hasil += simbol[i]\n            angka -= nilai[i]\n        i += 1\n    return hasil\n\nangka = 14\nhasil = ke_romawi(angka)\nprint(hasil)"
+    }
+  },
+  "soal_46": {
+    "pertanyaan": "Buatlah program Python yang menerima sebuah list bilangan kemudian menampilkan hasil kuadrat setiap bilangan menggunakan sebuah fungsi.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI kuadrat_list(data)\n    hasil <- []\n    UNTUK SETIAP angka DALAM data LAKUKAN\n        TAMBAHKAN (angka pangkat 2) KE hasil\n    KEMBALIKAN hasil\nAKHIR FUNGSI\n\ndata <- [2, 4, 6]\nhasil <- PANGGIL kuadrat_list(data)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def kuadrat_list(data):\n    hasil = []\n    for angka in data:\n        hasil.append(angka ____)\n    return hasil\n\ndata = [2, 4, 6]\nhasil = kuadrat_list(data)\nprint(hasil)",
+      "3": "def kuadrat_list(data):\n    hasil = []\n    for angka in data:\n        hasil.append(angka ** 2)\n    return hasil\n\ndata = [2, 4, 6]\nhasil = kuadrat_list(data)\nprint(hasil)"
+    }
+  },
+  "soal_47": {
+    "pertanyaan": "Diberikan sekumpulan titik pada bidang dua dimensi. Buatlah program Python yang menggunakan algoritma greedy untuk menentukan total biaya minimum yang diperlukan agar seluruh titik saling terhubung.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI biaya_minimum(points)\n    n <- PANJANG(points)\n    dikunjungi <- [SALAH] * n\n    jarak_min <- [TAK_HINGGA] * n\n    jarak_min[0] <- 0\n    total_biaya <- 0\n\n    ULANGI SEBANYAK n KALI\n        u <- -1\n        UNTUK i DARI 0 SAMPAI n-1 LAKUKAN\n            JIKA TIDAK dikunjungi[i] DAN (u == -1 ATAU jarak_min[i] < jarak_min[u]) MAKA\n                u <- i\n        dikunjungi[u] <- BENAR\n        total_biaya <- total_biaya + jarak_min[u]\n\n        UNTUK v DARI 0 SAMPAI n-1 LAKUKAN\n            JIKA TIDAK dikunjungi[v] MAKA\n                jarak <- |points[u].x - points[v].x| + |points[u].y - points[v].y|\n                JIKA jarak < jarak_min[v] MAKA\n                    jarak_min[v] <- jarak\n\n    KEMBALIKAN total_biaya\nAKHIR FUNGSI\n\npoints <- [(0,0), (2,2), (3,10), (5,2), (7,0)]\nhasil <- PANGGIL biaya_minimum(points)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def cost_connect_points(points):\n    n = len(points)\n    visited = [False] * n\n    min_dist = [float('inf')] * n\n    min_dist[0] = 0\n    total_cost = 0\n\n    for _ in range(n):\n        u = -1\n        for i in range(n):\n            if not visited[i] and (u == -1 or min_dist[i] < min_dist[u]):\n                u = i\n        visited[u] = True\n        total_cost += ____\n\n        for v in range(n):\n            if not visited[v]:\n                dist = abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1])\n                if dist < ____:\n                    min_dist[v] = dist\n\n    return ____\n\npoints = [(0,0), (2,2), (3,10), (5,2), (7,0)]\nhasil = cost_connect_points(points)\nprint(hasil)",
+      "3": "def cost_connect_points(points):\n    n = len(points)\n    visited = [False] * n\n    min_dist = [float('inf')] * n\n    min_dist[0] = 0\n    total_cost = 0\n\n    for _ in range(n):\n        u = -1\n        for i in range(n):\n            if not visited[i] and (u == -1 or min_dist[i] < min_dist[u]):\n                u = i\n        visited[u] = True\n        total_cost += min_dist[u]\n\n        for v in range(n):\n            if not visited[v]:\n                dist = abs(points[u][0] - points[v][0]) + abs(points[u][1] - points[v][1])\n                if dist < min_dist[v]:\n                    min_dist[v] = dist\n\n    return total_cost\n\npoints = [(0,0), (2,2), (3,10), (5,2), (7,0)]\nhasil = cost_connect_points(points)\nprint(hasil)"
+    }
+  },
+  "soal_48": {
+    "pertanyaan": "Buatlah program Python yang mengimplementasikan algoritma Dijkstra untuk mencari jalur terpendek dari sebuah simpul awal ke seluruh simpul lainnya pada sebuah graf berbobot.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI dijkstra(graph, start)\n    jarak <- {node: TAK_HINGGA UNTUK SETIAP node DALAM graph}\n    jarak[start] <- 0\n    dikunjungi <- HIMPUNAN_KOSONG\n\n    SELAMA PANJANG(dikunjungi) < PANJANG(graph) LAKUKAN\n        node_sekarang <- KOSONG\n        jarak_min <- TAK_HINGGA\n        UNTUK SETIAP node DALAM graph LAKUKAN\n            JIKA node TIDAK ADA_DI dikunjungi DAN jarak[node] < jarak_min MAKA\n                jarak_min <- jarak[node]\n                node_sekarang <- node\n\n        JIKA node_sekarang KOSONG MAKA\n            BERHENTI\n\n        TAMBAHKAN node_sekarang KE dikunjungi\n\n        UNTUK SETIAP (tetangga, bobot) DALAM graph[node_sekarang] LAKUKAN\n            jarak_baru <- jarak[node_sekarang] + bobot\n            JIKA jarak_baru < jarak[tetangga] MAKA\n                jarak[tetangga] <- jarak_baru\n\n    KEMBALIKAN jarak\nAKHIR FUNGSI\n\ngraph <- {A:{B:4,C:2}, B:{C:1,D:5}, C:{D:8,E:10}, D:{E:2}, E:{}}\nhasil <- PANGGIL dijkstra(graph, \"A\")\nTAMPILKAN hasil\nSELESAI",
+      "2": "def dijkstra(graph, start):\n    jarak = {node: float('inf') for node in graph}\n    jarak[start] = ____\n    dikunjungi = set()\n\n    while len(dikunjungi) < len(graph):\n        node_sekarang = None\n        jarak_min = float('inf')\n        for node in graph:\n            if node not in dikunjungi and jarak[node] < jarak_min:\n                jarak_min = jarak[node]\n                node_sekarang = node\n\n        if node_sekarang is None:\n            break\n\n        dikunjungi.add(node_sekarang)\n\n        for tetangga, bobot in graph[node_sekarang].items():\n            jarak_baru = jarak[node_sekarang] + bobot\n            if jarak_baru < ____:\n                jarak[tetangga] = jarak_baru\n\n    return jarak\n\ngraph = {\n    'A': {'B': 4, 'C': 2},\n    'B': {'C': 1, 'D': 5},\n    'C': {'D': 8, 'E': 10},\n    'D': {'E': 2},\n    'E': {}\n}\n\nhasil = dijkstra(graph, ____)\nprint(hasil)",
+      "3": "def dijkstra(graph, start):\n    jarak = {node: float('inf') for node in graph}\n    jarak[start] = 0\n    dikunjungi = set()\n\n    while len(dikunjungi) < len(graph):\n        node_sekarang = None\n        jarak_min = float('inf')\n        for node in graph:\n            if node not in dikunjungi and jarak[node] < jarak_min:\n                jarak_min = jarak[node]\n                node_sekarang = node\n\n        if node_sekarang is None:\n            break\n\n        dikunjungi.add(node_sekarang)\n\n        for tetangga, bobot in graph[node_sekarang].items():\n            jarak_baru = jarak[node_sekarang] + bobot\n            if jarak_baru < jarak[tetangga]:\n                jarak[tetangga] = jarak_baru\n\n    return jarak\n\ngraph = {\n    'A': {'B': 4, 'C': 2},\n    'B': {'C': 1, 'D': 5},\n    'C': {'D': 8, 'E': 10},\n    'D': {'E': 2},\n    'E': {}\n}\n\nhasil = dijkstra(graph, 'A')\nprint(hasil)"
+    }
+  },
+  "soal_49": {
+    "pertanyaan": "Buatlah program Python menggunakan Dynamic Programming untuk menyelesaikan permasalahan 0/1 Knapsack dan menentukan nilai maksimum yang dapat dibawa tanpa melebihi kapasitas tas.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI knapsack(bobot, nilai, kapasitas)\n    n <- PANJANG(bobot)\n    dp <- MATRIKS[0..n][0..kapasitas] DIISI 0\n\n    UNTUK i DARI 1 SAMPAI n LAKUKAN\n        UNTUK w DARI 0 SAMPAI kapasitas LAKUKAN\n            JIKA bobot[i-1] <= w MAKA\n                dp[i][w] <- MAKS(dp[i-1][w], dp[i-1][w - bobot[i-1]] + nilai[i-1])\n            JIKA TIDAK\n                dp[i][w] <- dp[i-1][w]\n\n    KEMBALIKAN dp[n][kapasitas]\nAKHIR FUNGSI\n\nbobot <- [10, 20, 30]\nnilai <- [60, 100, 120]\nkapasitas <- 50\nhasil <- PANGGIL knapsack(bobot, nilai, kapasitas)\nTAMPILKAN hasil\nSELESAI",
+      "2": "def knapsack(bobot, nilai, kapasitas):\n    n = len(bobot)\n    dp = [[0] * (kapasitas + 1) for _ in range(n + 1)]\n\n    for i in range(1, n + 1):\n        for w in range(kapasitas + 1):\n            if bobot[i-1] <= w:\n                dp[i][w] = max(dp[i-1][w], dp[i-1][w - ____] + ____)\n            else:\n                dp[i][w] = dp[i-1][w]\n\n    return dp[n][____]\n\nbobot = [10, 20, 30]\nnilai = [60, 100, 120]\nkapasitas = 50\nhasil = knapsack(bobot, nilai, kapasitas)\nprint(hasil)",
+      "3": "def knapsack(bobot, nilai, kapasitas):\n    n = len(bobot)\n    dp = [[0] * (kapasitas + 1) for _ in range(n + 1)]\n\n    for i in range(1, n + 1):\n        for w in range(kapasitas + 1):\n            if bobot[i-1] <= w:\n                dp[i][w] = max(dp[i-1][w], dp[i-1][w - bobot[i-1]] + nilai[i-1])\n            else:\n                dp[i][w] = dp[i-1][w]\n\n    return dp[n][kapasitas]\n\nbobot = [10, 20, 30]\nnilai = [60, 100, 120]\nkapasitas = 50\nhasil = knapsack(bobot, nilai, kapasitas)\nprint(hasil)"
+    }
+  },
+  "soal_50": {
+    "pertanyaan": "Buatlah program Python yang menggunakan algoritma backtracking untuk menyelesaikan sebuah papan Sudoku berukuran 9×9 yang belum lengkap.",
+    "hints": {
+      "1": "MULAI\nDEFINISI FUNGSI cari_kosong(board)\n    UNTUK i DARI 0 SAMPAI 8 LAKUKAN\n        UNTUK j DARI 0 SAMPAI 8 LAKUKAN\n            JIKA board[i][j] == 0 MAKA\n                KEMBALIKAN (i, j)\n    KEMBALIKAN KOSONG\nAKHIR FUNGSI\n\nDEFINISI FUNGSI valid(board, angka, baris, kolom)\n    UNTUK j DARI 0 SAMPAI 8 LAKUKAN\n        JIKA board[baris][j] == angka MAKA\n            KEMBALIKAN SALAH\n    UNTUK i DARI 0 SAMPAI 8 LAKUKAN\n        JIKA board[i][kolom] == angka MAKA\n            KEMBALIKAN SALAH\n    kotak_baris <- (baris DIV 3) * 3\n    kotak_kolom <- (kolom DIV 3) * 3\n    UNTUK i DARI kotak_baris SAMPAI kotak_baris+2 LAKUKAN\n        UNTUK j DARI kotak_kolom SAMPAI kotak_kolom+2 LAKUKAN\n            JIKA board[i][j] == angka MAKA\n                KEMBALIKAN SALAH\n    KEMBALIKAN BENAR\nAKHIR FUNGSI\n\nDEFINISI FUNGSI solve_sudoku(board)\n    kosong <- PANGGIL cari_kosong(board)\n    JIKA kosong KOSONG MAKA\n        KEMBALIKAN BENAR\n    baris, kolom <- kosong\n\n    UNTUK angka DARI 1 SAMPAI 9 LAKUKAN\n        JIKA PANGGIL valid(board, angka, baris, kolom) MAKA\n            board[baris][kolom] <- angka\n            JIKA PANGGIL solve_sudoku(board) MAKA\n                KEMBALIKAN BENAR\n            board[baris][kolom] <- 0\n\n    KEMBALIKAN SALAH\nAKHIR FUNGSI\n\npapan <- [...papan sudoku awal...]\nPANGGIL solve_sudoku(papan)\nTAMPILKAN papan\nSELESAI",
+      "2": "def cari_kosong(board):\n    for i in range(9):\n        for j in range(9):\n            if board[i][j] == 0:\n                return (i, j)\n    return None\n\ndef valid(board, angka, baris, kolom):\n    for j in range(9):\n        if board[baris][j] == angka:\n            return False\n    for i in range(9):\n        if board[i][kolom] == angka:\n            return False\n    kotak_baris = (baris // ____) * ____\n    kotak_kolom = (kolom // ____) * ____\n    for i in range(kotak_baris, kotak_baris + 3):\n        for j in range(kotak_kolom, kotak_kolom + 3):\n            if board[i][j] == angka:\n                return False\n    return True\n\ndef solve_sudoku(board):\n    kosong = cari_kosong(board)\n    if not kosong:\n        return True\n    baris, kolom = kosong\n\n    for angka in range(1, ____):\n        if valid(board, angka, baris, kolom):\n            board[baris][kolom] = angka\n            if solve_sudoku(board):\n                return ____\n            board[baris][kolom] = ____\n\n    return False\n\ndef tampilkan(board):\n    for baris in board:\n        print(baris)\n\npapan = [\n    [5,3,0,0,7,0,0,0,0],\n    [6,0,0,1,9,5,0,0,0],\n    [0,9,8,0,0,0,0,6,0],\n    [8,0,0,0,6,0,0,0,3],\n    [4,0,0,8,0,3,0,0,1],\n    [7,0,0,0,2,0,0,0,6],\n    [0,6,0,0,0,0,2,8,0],\n    [0,0,0,4,1,9,0,0,5],\n    [0,0,0,0,8,0,0,7,9]\n]\n\nsolve_sudoku(papan)\ntampilkan(papan)",
+      "3": "def cari_kosong(board):\n    for i in range(9):\n        for j in range(9):\n            if board[i][j] == 0:\n                return (i, j)\n    return None\n\ndef valid(board, angka, baris, kolom):\n    for j in range(9):\n        if board[baris][j] == angka:\n            return False\n    for i in range(9):\n        if board[i][kolom] == angka:\n            return False\n    kotak_baris = (baris // 3) * 3\n    kotak_kolom = (kolom // 3) * 3\n    for i in range(kotak_baris, kotak_baris + 3):\n        for j in range(kotak_kolom, kotak_kolom + 3):\n            if board[i][j] == angka:\n                return False\n    return True\n\ndef solve_sudoku(board):\n    kosong = cari_kosong(board)\n    if not kosong:\n        return True\n    baris, kolom = kosong\n\n    for angka in range(1, 10):\n        if valid(board, angka, baris, kolom):\n            board[baris][kolom] = angka\n            if solve_sudoku(board):\n                return True\n            board[baris][kolom] = 0\n\n    return False\n\ndef tampilkan(board):\n    for baris in board:\n        print(baris)\n\npapan = [\n    [5,3,0,0,7,0,0,0,0],\n    [6,0,0,1,9,5,0,0,0],\n    [0,9,8,0,0,0,0,6,0],\n    [8,0,0,0,6,0,0,0,3],\n    [4,0,0,8,0,3,0,0,1],\n    [7,0,0,0,2,0,0,0,6],\n    [0,6,0,0,0,0,2,8,0],\n    [0,0,0,4,1,9,0,0,5],\n    [0,0,0,0,8,0,0,7,9]\n]\n\nsolve_sudoku(papan)\ntampilkan(papan)"
     }
   }
 }
