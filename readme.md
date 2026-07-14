@@ -20,3 +20,16 @@ IF ALL DONE ABOVE, TRY CHECKING THE MODEL BY RUNNING "model_check.py"
 
 IF IT RETURNS ERROR, THERE'S SOMETHING WRONG WITH YOUR CONFIGURATION.
 Either from models server, missing packages, or others.
+
+-------------------------------------------------------------
+
+# HOW TO RUN THE FINETUNING INPUT:
+
+```pip install flask flask-cors openai python-dotenv ```
+(if you dont have yet)
+
+```python api-simple.py```
+will run flask on: http://localhost:5050
+
+open index.html on browser
+start LM studio service or ollama, adjust the API host

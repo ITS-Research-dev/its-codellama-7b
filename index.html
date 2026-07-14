@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeLlama Evaluator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #111;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    p.subtitle {
+      color: #555;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .layout {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .col-main { flex: 1; }
+    .col-side  { width: 280px; flex-shrink: 0; }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card h2 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    label small {
+      font-weight: normal;
+      color: #666;
+    }
+
+    .field { margin-bottom: 12px; }
+    .field:last-child { margin-bottom: 0; }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #bbb;
+      border-radius: 3px;
+      padding: 6px 8px;
+      font-size: 13px;
+      font-family: inherit;
+      background: #fff;
+      color: #111;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      outline: 1px solid #666;
+    }
+
+    textarea.code { font-family: "Courier New", monospace; font-size: 12px; }
+    textarea      { resize: vertical; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 7px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      border-radius: 3px;
+      border: 1px solid #999;
+      background: #eee;
+      color: #111;
+    }
+
+    button:hover   { background: #ddd; }
+    button:active  { background: #ccc; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    button.primary {
+      background: #333;
+      color: #fff;
+      border-color: #333;
+    }
+    button.primary:hover { background: #444; }
+
+    /* Sliders */
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slider-row input[type="range"] {
+      flex: 1;
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+    }
+    .slider-val {
+      width: 40px;
+      text-align: right;
+      font-size: 13px;
+      font-family: "Courier New", monospace;
+    }
+
+    /* Tabs */
+    .tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid #ccc; }
+    .tab {
+      padding: 6px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 3px 3px 0 0;
+      background: #eee;
+      color: #555;
+      margin-right: 2px;
+    }
+    .tab.active { background: #fff; border-color: #ccc; color: #111; }
+    .tab:hover:not(.active) { background: #e0e0e0; }
+    .tab-content { display: none; padding-top: 14px; }
+    .tab-content.active { display: block; }
+
+    /* Result */
+    #result { display: none; }
+
+    .verdict {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 13px;
+      border: 1px solid #bbb;
+      background: #f0f0f0;
+      margin-bottom: 10px;
+    }
+    .verdict.benar    { background: #e0f5e0; border-color: #5a5; }
+    .verdict.salah    { background: #fde8e8; border-color: #a55; }
+    .verdict.sebagian { background: #fff5dc; border-color: #aa7; }
+
+    table.result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    table.result-table th,
+    table.result-table td {
+      text-align: left;
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    table.result-table th {
+      background: #f2f2f2;
+      font-weight: bold;
+      width: 160px;
+    }
+
+    pre.raw {
+      background: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 10px;
+      font-size: 12px;
+      font-family: "Courier New", monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    #status-bar {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    hr { border: none; border-top: 1px solid #ddd; margin: 12px 0; }
+
+    @media (max-width: 720px) {
+      .layout { flex-direction: column; }
+      .col-side { width: 100%; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>CODELLAMA FINETUNING INPUT</h1>
+<div id="status-bar">status: <span id="status-text">Checking server…</span></div>
+
+<div class="layout">
+
+  <!-- ── Main column ── -->
+  <div class="col-main">
+
+    <!-- Inputs -->
+    <div class="card">
+      <div class="field">
+        <label>Soal</label>
+        <textarea id="soal" rows="4"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Submitted Code</label>
+        <textarea id="code" class="code" rows="10"></textarea>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>Expected Output</label>
+          <textarea id="expected_out" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label>Simulated Input (Optional)</label>
+          <textarea id="simulated_in" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="primary" id="evalBtn" onclick="runEvaluate()">▶ Evaluate</button>
+        <button onclick="fillDemo()">Load Demo</button>
+        <button onclick="clearAll()">Clear</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="card" id="result">
+      <h2>Result <small id="result-time" style="font-weight:normal;color:#666;"></small></h2>
+      <div id="result-body"></div>
+    </div>
+
+  </div>
+
+  <!-- ── Sidebar ── -->
+  <div class="col-side">
+
+    <div class="card" style="padding-bottom:0;">
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this,'tab-model')">Model</div>
+        <div class="tab" onclick="switchTab(this,'tab-tune')">Fine-tune</div>
+        <div class="tab" onclick="switchTab(this,'tab-prompt')">Prompt</div>
+      </div>
+
+      <!-- Model tab -->
+      <div class="tab-content active" id="tab-model" style="padding:14px;">
+        <div class="field">
+          <label>API Host</label>
+          <input type="text" id="model_host" value="http://localhost:1234" />
+        </div>
+        <div class="field">
+          <label>Model Name</label>
+          <input type="text" id="model_name" value="codellama-7b-instruct" />
+        </div>
+        <div class="field">
+          <label>Flask Port</label>
+          <input type="number" id="api_port" value="5050" min="1" max="65535" style="width:100px;" />
+        </div>
+        <button onclick="pingHealth()" style="width:100%;margin-bottom:14px;">Test Connection</button>
+      </div>
+
+      <!-- Fine-tune tab -->
+      <div class="tab-content" id="tab-tune" style="padding:14px;">
+        <div class="field">
+          <label>Temperature</label>
+          <div class="slider-row">
+            <input type="range" id="temperature" min="0" max="2" step="0.05" value="0"
+              oninput="syncVal(this,'temperature_val')" />
+            <span class="slider-val" id="temperature_val">0.00</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Top-P</label>
+          <div class="slider-row">
+            <input type="range" id="top_p" min="0.01" max="1" step="0.01" value="1"
+              oninput="syncVal(this,'top_p_val')" />
+            <span class="slider-val" id="top_p_val">1.00</span>
+          </div>
+        </div>
+        <div class="field">
+          <label>Max Tokens</label>
+          <div class="slider-row">
+            <input type="range" id="max_tokens" min="128" max="4096" step="64" value="1024"
+              oninput="syncVal(this,'max_tokens_val')" />
+            <span class="slider-val" id="max_tokens_val">1024</span>
+          </div>
+        </div>
+        <hr />
+        <button onclick="resetTuning()" style="width:100%;margin-bottom:14px;">Reset Defaults</button>
+      </div>
+
+      <!-- Prompt tab -->
+      <div class="tab-content" id="tab-prompt" style="padding:14px;">
+        <div class="field">
+          <label>Custom Instructions</label>
+          <textarea id="custom_instructions" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="card">
+      <h2>run command</h2>
+      <pre class="raw" style="margin-bottom:0;"># pip install flask flask-cors openai python-dotenv 
+(if you dont have yet)
+
+# python api-simple.py
+will run flask on: http://localhost:5050
+
+# start LM studio service or ollama, adjust the API host
+
+# then open index.html in browser</pre>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function $(id) { return document.getElementById(id); }
+
+function setStatus(msg) { $('status-text').textContent = msg; }
+
+function getBase() {
+  return 'http://localhost:' + (parseInt($('api_port').value) || 5050);
+}
+
+function syncVal(el, valId) {
+  const v = parseFloat(el.value);
+  $(valId).textContent = el.step && el.step.includes('.') ? v.toFixed(2) : String(v);
+}
+
+function switchTab(el, contentId) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  $(contentId).classList.add('active');
+}
+
+function resetTuning() {
+  $('temperature').value = 0;    syncVal($('temperature'), 'temperature_val');
+  $('top_p').value = 1;          syncVal($('top_p'), 'top_p_val');
+  $('max_tokens').value = 1024;  syncVal($('max_tokens'), 'max_tokens_val');
+}
+
+async function pingHealth() {
+  setStatus('Checking…');
+  try {
+    const r = await fetch(getBase() + '/health', { signal: AbortSignal.timeout(4000) });
+    const d = await r.json();
+    setStatus('Connected | model: ' + (d.default_model || 'unknown'));
+  } catch {
+    setStatus('Cannot reach server. Is api-simple.py running?');
+  }
+}
+
+pingHealth();
+
+// Load defaults from server
+(async () => {
+  try {
+    const r = await fetch(getBase() + '/defaults', { signal: AbortSignal.timeout(3000) });
+    if (!r.ok) return;
+    const d = await r.json();
+    if (d.model_host)  $('model_host').value  = d.model_host.replace('/v1','');
+    if (d.model_name)  $('model_name').value  = d.model_name;
+    if (d.temperature !== undefined) { $('temperature').value = d.temperature; syncVal($('temperature'),'temperature_val'); }
+    if (d.max_tokens  !== undefined) { $('max_tokens').value  = d.max_tokens;  syncVal($('max_tokens'),'max_tokens_val'); }
+    if (d.top_p       !== undefined) { $('top_p').value       = d.top_p;       syncVal($('top_p'),'top_p_val'); }
+  } catch {}
+})();
+
+function fillDemo() {
+  $('soal').value = 'Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.';
+  $('code').value =
+`def linear_search(names, target):
+    comparisons = 0
+    for i, name in enumerate(names):
+        comparisons += 1
+        if name == target:
+            return i, comparisons
+    return -1, comparisons
+
+def binary_search(names, target):
+    names_sorted = sorted(names)
+    low, high = 0, len(names_sorted) - 1
+    comparisons = 0
+    while low <= high:
+        mid = (low + high) // 2
+        comparisons += 1
+        if names_sorted[mid] == target:
+            return mid, comparisons
+        elif names_sorted[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1, comparisons
+
+names = ['Andi', 'Budi', 'Citra', 'Dewi', 'Eka']
+target = 'Citra'
+
+ls_idx, ls_cmp = linear_search(names, target)
+bs_idx, bs_cmp = binary_search(sorted(names), target)
+
+print(f"Linear Search: ditemukan di indeks {ls_idx} ({ls_cmp} kali perbandingan)")
+print(f"Binary Search: ditemukan di indeks {bs_idx} ({bs_cmp} kali perbandingan)")
+print("Linear Search cocok untuk data kecil/tidak terurut.")
+print("Binary Search lebih efisien untuk data besar yang sudah terurut.")`;
+  $('expected_out').value =
+`Linear Search: ditemukan di indeks 2 (3 kali perbandingan)
+Binary Search: ditemukan di indeks 2 (2 kali perbandingan)
+Linear Search cocok untuk data kecil/tidak terurut.
+Binary Search lebih efisien untuk data besar yang sudah terurut.`;
+  $('simulated_in').value = '';
+}
+
+function clearAll() {
+  ['soal','code','expected_out','simulated_in','custom_instructions'].forEach(id => $(id).value = '');
+  $('result').style.display = 'none';
+}
+
+async function runEvaluate() {
+  const soal = $('soal').value.trim();
+  const code = $('code').value.trim();
+  if (!soal || !code) { alert('Please fill in "Soal" and "Submitted Code".'); return; }
+
+  const payload = {
+    soal,
+    code,
+    expected_out:        $('expected_out').value.trim(),
+    simulated_in:        $('simulated_in').value.trim(),
+    model_host:          $('model_host').value.trim(),
+    model_name:          $('model_name').value.trim(),
+    temperature:         parseFloat($('temperature').value),
+    max_tokens:          parseInt($('max_tokens').value),
+    top_p:               parseFloat($('top_p').value),
+    custom_instructions: $('custom_instructions').value.trim(),
+  };
+
+  const btn = $('evalBtn');
+  btn.disabled = true;
+  btn.textContent = 'Evaluating…';
+  $('result').style.display = 'none';
+  setStatus('Sending request…');
+
+  const t0 = Date.now();
+  try {
+    const resp = await fetch(getBase() + '/evaluate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+    const data = await resp.json();
+    if (!resp.ok || data.error) {
+      showError(data.error || resp.statusText, elapsed);
+    } else {
+      showResult(data, elapsed);
+    }
+    setStatus('Done.');
+  } catch (err) {
+    showError('Network error: ' + err.message, 0);
+    setStatus('Error — is api-simple.py running?');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '▶ Evaluate';
+  }
+}
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function showResult(data, elapsed) {
+  const cls = data.classification || 'Unknown';
+  const verdictClass = {
+    'Benar': 'benar',
+    'Salah': 'salah',
+    'Sebagian Benar': 'sebagian',
+  }[cls] || '';
+
+  const isCorrectText = data.is_correct === true ? 'true'
+                      : data.is_correct === false ? 'false'
+                      : 'null';
+
+  let rows = [
+    ['Classification', `<span class="verdict ${verdictClass}">${esc(cls)}</span>`],
+    ['is_correct',     esc(isCorrectText)],
+    ['Explanation',    esc(data.explanation || '—')],
+  ];
+
+  if (data.complexity_analysis) {
+    rows.push(['Complexity', esc(data.complexity_analysis)]);
+  }
+
+  let html = '<table class="result-table"><tbody>';
+  for (const [k, v] of rows) {
+    html += `<tr><th>${esc(k)}</th><td>${v}</td></tr>`;
+  }
+  html += '</tbody></table>';
+
+  if (data.raw_output) {
+    html += `<p style="margin-top:12px;font-weight:bold;font-size:13px;color:#a00;">
+      ⚠ Could not parse JSON — raw model output:</p>
+      <pre class="raw">${esc(data.raw_output)}</pre>`;
+  }
+
+  if (data._meta) {
+    const m = data._meta;
+    html += `<p style="margin-top:12px;font-size:12px;color:#666;">
+      Model: ${esc(m.model_name)} &nbsp;|&nbsp;
+      temp: ${m.temperature} &nbsp;|&nbsp;
+      top_p: ${m.top_p} &nbsp;|&nbsp;
+      max_tokens: ${m.max_tokens}
+    </p>`;
+  }
+
+  $('result-body').innerHTML = html;
+  $('result-time').textContent = '(' + elapsed + 's)';
+  $('result').style.display = 'block';
+}
+
+function showError(msg, elapsed) {
+  $('result-body').innerHTML = `<p style="color:#a00;"><strong>Error:</strong> ${esc(msg)}</p>`;
+  $('result-time').textContent = elapsed ? '(' + elapsed + 's)' : '';
+  $('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
