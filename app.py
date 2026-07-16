@@ -395,33 +395,12 @@ def evaluate_and_classify(code, soal, expected_output, simulated_input, executio
     raw_text = ""
     try:
         # ── CALL 0: semantic validation ──────────────────────────────────────
-        semantic_pass, semantic_reason, semantic_text = _check_semantic(
-            model_name, system_msg, soal, expected_output, code
-        )
-
-        if not semantic_pass:
-            zero_scores = {k: 0 for k in ["functionality", "code_style", "documentation",
-                                           "logic", "syntax", "concept", "overall_score"]}
-            return {
-                "feedback": (
-                    f"Your output matched, but your code does not actually solve the problem. "
-                    f"{semantic_reason} "
-                    f"Avoid hardcoding answers — implement the real logic."
-                ),
-                "inferred_proficiency": "Novice",
-                "reasoning": "Code does not genuinely solve the problem.",
-                "scores": zero_scores,
-                "critique": {
-                    "functionality": f"Output matched but code doesn't solve the problem: {semantic_reason}",
-                    "code_style": "Not evaluated — code must solve the problem first.",
-                    "documentation": "Not evaluated — code must solve the problem first.",
-                    "logic": f"Logic does not address the problem requirements: {semantic_reason}",
-                    "syntax": "Not evaluated — code must solve the problem first.",
-                    "concept": "Not evaluated — code must solve the problem first.",
-                },
-                "_semantic_failed": True,
-                "_semantic_raw": semantic_text,
-            }
+        # [TEMPORARILY DISABLED] semantic_pass, semantic_reason, semantic_text = _check_semantic(
+        #     model_name, system_msg, soal, expected_output, code
+        # )
+        # [TEMPORARILY DISABLED] if not semantic_pass: ... (full block skipped)
+        semantic_pass, semantic_reason = True, "[Semantic gate temporarily disabled — auto-passed]"
+        _dbg("SEMANTIC GATE", semantic_reason)
 
         # ── CALL 1: narrative analysis ────────────────────────────────────────
         if execution_result:
@@ -466,6 +445,7 @@ Student code:
 {code}
 """
         analysis_text = _call_lmstudio(model_name, system_msg, prompt_analysis)
+        _dbg("PURE LLM RESPONSE (analysis)", analysis_text)  # [DEBUG ENABLED]
 
         if not analysis_text or not analysis_text.strip():
             error_fallback["feedback"] = "AI produced no analysis text (empty response from LM Studio)."
