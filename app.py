@@ -136,9 +136,9 @@ def _dbg(label, text):
         print(f"----- END [{label}] -----\n")
 
 
-# ─── LM STUDIO HELPERS ────────────────────────────────────────────────────────
+# ─── OLLAMA HELPERS ───────────────────────────────────────────────────────────
 def _call_lmstudio(model_name, system_msg, user_msg):
-    """Call LM Studio and return the response text."""
+    """Call Ollama and return the response text."""
     try:
         url = MODEL_HOST + "/chat/completions"
         payload = {
@@ -158,7 +158,7 @@ def _call_lmstudio(model_name, system_msg, user_msg):
             _dbg("LLM RAW RESPONSE", content)
             return content
         else:
-            print("Error: LM Studio did not return 'choices' in the JSON!")
+            print("Error: Ollama did not return 'choices' in the JSON!")
             _dbg("LLM RAW RESPONSE (no choices)", json.dumps(data))
             return ""
     except Exception as e:
@@ -448,7 +448,7 @@ Student code:
         _dbg("PURE LLM RESPONSE (analysis)", analysis_text)  # [DEBUG ENABLED]
 
         if not analysis_text or not analysis_text.strip():
-            error_fallback["feedback"] = "AI produced no analysis text (empty response from LM Studio)."
+            error_fallback["feedback"] = "AI produced no analysis text (empty response from Ollama)."
             return error_fallback
 
         # ── CALL 2: convert to JSON ───────────────────────────────────────────

@@ -3,91 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeLlama Evaluator</title>
+  <title>ITS CodeLlama – QLoRA Evaluator</title>
+
   <style>
+    /* ── Reset / base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: #111;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 16px;
-    }
-
-    h1 {
-      font-size: 18px;
-      margin-bottom: 4px;
-    }
-
-    p.subtitle {
-      color: #555;
-      margin-bottom: 16px;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 13px;
+      color: #000;
+      background: #fff;
+      min-height: 100vh;
     }
 
+    /* ── Top bar ──────────────────────────────────────────────────── */
+    .topbar {
+      background: #fff;
+      border-bottom: 1px solid #000;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar-logo { font-size: 14px; font-weight: bold; }
+    .topbar-logo span { }
+    .topbar-badge {
+      font-size: 10px;
+      font-weight: bold;
+      border: 1px solid #000;
+      padding: 1px 6px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    #status-bar {
+      margin-left: auto;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .status-dot.ok    { background: #000; }
+    .status-dot.error { background: #000; border-style: dashed; }
+    .status-dot.busy  { background: #888; }
+
+    /* ── Layout ───────────────────────────────────────────────────── */
     .layout {
       display: flex;
       gap: 16px;
+      padding: 16px 20px;
       align-items: flex-start;
+      max-width: 1400px;
+      margin: 0 auto;
     }
+    .col-main { flex: 1; min-width: 0; }
+    .col-side { width: 300px; flex-shrink: 0; }
 
-    .col-main { flex: 1; }
-    .col-side  { width: 280px; flex-shrink: 0; }
-
+    /* ── Cards ────────────────────────────────────────────────────── */
     .card {
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 16px;
+      border: 1px solid #000;
+      padding: 14px;
       margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .card h2 {
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #ddd;
-    }
+    /* ── Form fields ──────────────────────────────────────────────── */
+    .field { margin-bottom: 10px; }
+    .field:last-child { margin-bottom: 0; }
 
     label {
       display: block;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: bold;
       margin-bottom: 4px;
     }
-
-    label small {
-      font-weight: normal;
-      color: #666;
-    }
-
-    .field { margin-bottom: 12px; }
-    .field:last-child { margin-bottom: 0; }
+    label small { font-weight: normal; }
 
     input[type="text"],
     input[type="number"],
     textarea,
     select {
       width: 100%;
-      box-sizing: border-box;
-      border: 1px solid #bbb;
-      border-radius: 3px;
-      padding: 6px 8px;
+      background: #fff;
+      border: 1px solid #000;
+      color: #000;
+      padding: 5px 8px;
       font-size: 13px;
       font-family: inherit;
-      background: #fff;
-      color: #111;
+      outline: none;
+      resize: vertical;
     }
-
     input[type="text"]:focus,
     input[type="number"]:focus,
-    textarea:focus {
-      outline: 1px solid #666;
-    }
-
-    textarea.code { font-family: "Courier New", monospace; font-size: 12px; }
-    textarea      { resize: vertical; }
+    textarea:focus { outline: 1px solid #000; }
+    textarea.code { font-family: monospace; font-size: 12px; line-height: 1.5; }
 
     .two-col {
       display: grid;
@@ -95,169 +122,298 @@
       gap: 12px;
     }
 
-    .btn-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
+    /* ── Buttons ──────────────────────────────────────────────────── */
+    .btn-row { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
 
     button {
-      padding: 7px 16px;
-      font-size: 13px;
-      cursor: pointer;
-      border-radius: 3px;
-      border: 1px solid #999;
-      background: #eee;
-      color: #111;
-    }
-
-    button:hover   { background: #ddd; }
-    button:active  { background: #ccc; }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
-
-    button.primary {
-      background: #333;
-      color: #fff;
-      border-color: #333;
-    }
-    button.primary:hover { background: #444; }
-
-    /* Sliders */
-    .slider-row {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 4px;
+      padding: 5px 12px;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: normal;
+      cursor: pointer;
+      border: 1px solid #000;
+      background: #fff;
+      color: #000;
+      white-space: nowrap;
     }
+    button:hover   { background: #000; color: #fff; }
+    button:active  { opacity: .8; }
+    button:disabled { opacity: .4; cursor: not-allowed; }
+
+    button.primary { background: #000; color: #fff; font-weight: bold; }
+    button.primary:hover { background: #333; }
+    button.btn-green  { }
+    button.btn-green:hover  { background: #000; color: #fff; }
+    button.btn-yellow { }
+    button.btn-yellow:hover { background: #000; color: #fff; }
+    button.btn-red    { }
+    button.btn-red:hover    { background: #000; color: #fff; }
+
+    /* ── Sliders ──────────────────────────────────────────────────── */
+    .slider-row { display: flex; align-items: center; gap: 8px; }
     .slider-row input[type="range"] {
       flex: 1;
       border: none;
       padding: 0;
       background: none;
       cursor: pointer;
+      accent-color: #000;
     }
     .slider-val {
-      width: 40px;
+      width: 44px;
       text-align: right;
-      font-size: 13px;
-      font-family: "Courier New", monospace;
+      font-size: 12px;
+      font-family: monospace;
     }
 
-    /* Tabs */
-    .tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid #ccc; }
+    /* ── Tabs ─────────────────────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #000;
+      margin-bottom: 12px;
+    }
     .tab {
-      padding: 6px 14px;
-      font-size: 13px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: normal;
       cursor: pointer;
       border: 1px solid transparent;
       border-bottom: none;
-      border-radius: 3px 3px 0 0;
-      background: #eee;
-      color: #555;
-      margin-right: 2px;
+      color: #888;
     }
-    .tab.active { background: #fff; border-color: #ccc; color: #111; }
-    .tab:hover:not(.active) { background: #e0e0e0; }
-    .tab-content { display: none; padding-top: 14px; }
+    .tab.active {
+      color: #000;
+      border: 1px solid #000;
+      border-bottom: 1px solid #fff;
+      margin-bottom: -1px;
+    }
+    .tab:hover:not(.active) { color: #000; }
+    .tab-content { display: none; }
     .tab-content.active { display: block; }
 
-    /* Result */
+    /* ── Score display ────────────────────────────────────────────── */
     #result { display: none; }
 
-    .verdict {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 3px;
-      font-weight: bold;
-      font-size: 13px;
-      border: 1px solid #bbb;
-      background: #f0f0f0;
-      margin-bottom: 10px;
+    .result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
     }
-    .verdict.benar    { background: #e0f5e0; border-color: #5a5; }
-    .verdict.salah    { background: #fde8e8; border-color: #a55; }
-    .verdict.sebagian { background: #fff5dc; border-color: #aa7; }
+    .overall-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .score-circle {
+      width: 56px; height: 56px;
+      border: 2px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .proficiency-tag {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: .4px;
+      padding: 2px 8px;
+      border: 1px solid #000;
+      text-transform: uppercase;
+    }
 
-    table.result-table {
+    .rubric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .rubric-item { display: flex; flex-direction: column; gap: 4px; }
+    .rubric-label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .rubric-label span { font-variant-numeric: tabular-nums; }
+    .bar-track {
+      height: 5px;
+      background: #ddd;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: #000;
+    }
+
+    /* ── Feedback block ───────────────────────────────────────────── */
+    .feedback-block {
+      border-left: 3px solid #000;
+      padding: 10px 12px;
+      margin: 12px 0;
+      font-size: 13px;
+      line-height: 1.6;
+      background: #f8f8f8;
+    }
+
+    /* ── Accordion / critique ─────────────────────────────────────── */
+    .accordion-btn {
       width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin-top: 10px;
-    }
-    table.result-table th,
-    table.result-table td {
       text-align: left;
+      background: #f0f0f0;
+      border: 1px solid #000;
       padding: 6px 10px;
-      border: 1px solid #ddd;
-      vertical-align: top;
-    }
-    table.result-table th {
-      background: #f2f2f2;
+      font-size: 12px;
       font-weight: bold;
-      width: 160px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+    .accordion-btn:hover { background: #e0e0e0; }
+    .accordion-body {
+      display: none;
+      border: 1px solid #000;
+      border-top: none;
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 4px;
+      background: #fafafa;
+    }
+    .accordion-body.open { display: block; }
+
+    /* ── Fine-tune toolbar ────────────────────────────────────────── */
+    .ft-toolbar {
+      display: none;
+      border: 1px solid #000;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: #f8f8f8;
+    }
+    .ft-toolbar.visible { display: flex; }
+    .ft-label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .sample-badge {
+      font-size: 11px;
+      font-weight: bold;
+      border: 1px solid #000;
+      padding: 1px 8px;
+      min-width: 40px;
+      text-align: center;
+    }
+    .ft-spacer { flex: 1; }
+
+    /* ── Model section labels ─────────────────────────────────────── */
+    .model-section-label {
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin: 10px 0 6px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 3px;
     }
 
-    pre.raw {
-      background: #f4f4f4;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      padding: 10px;
+    /* ── QLoRA ref panel ──────────────────────────────────────────── */
+    .qlora-param { margin-bottom: 8px; }
+    .qlora-key {
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+    .qlora-val {
+      font-family: monospace;
       font-size: 12px;
-      font-family: "Courier New", monospace;
+      border: 1px solid #ccc;
+      padding: 3px 6px;
+      display: block;
+      background: #f8f8f8;
+    }
+
+    /* ── Raw output / code blocks ─────────────────────────────────── */
+    pre.raw {
+      border: 1px solid #000;
+      padding: 10px;
+      font-size: 11px;
+      font-family: monospace;
       white-space: pre-wrap;
       word-break: break-word;
-      max-height: 200px;
+      max-height: 220px;
       overflow-y: auto;
+      margin-top: 6px;
+      background: #f8f8f8;
     }
 
-    #status-bar {
-      font-size: 12px;
-      color: #555;
-      margin-bottom: 12px;
-    }
+    /* ── Misc ─────────────────────────────────────────────────────── */
+    hr { border: none; border-top: 1px solid #ccc; margin: 10px 0; }
+    .text-sm  { font-size: 12px; color: #555; }
+    .text-err { color: #000; font-weight: bold; }
+    .icon { font-style: normal; }
 
-    hr { border: none; border-top: 1px solid #ddd; margin: 12px 0; }
-
-    @media (max-width: 720px) {
+    @media (max-width: 800px) {
       .layout { flex-direction: column; }
       .col-side { width: 100%; }
       .two-col { grid-template-columns: 1fr; }
+      .rubric-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<h1>CODELLAMA FINETUNING INPUT</h1>
-<div id="status-bar">status: <span id="status-text">Checking server…</span></div>
+<!-- ── Top bar ──────────────────────────────────────────────────────────────── -->
+<header class="topbar">
+  <div class="topbar-logo">ITS <span>CodeLlama</span></div>
+  <div class="topbar-badge">QLoRA Prep</div>
+  <div id="status-bar">
+    <span class="status-dot" id="status-dot"></span>
+    <span id="status-text">Connecting…</span>
+  </div>
+</header>
 
+<!-- ── Main layout ──────────────────────────────────────────────────────────── -->
 <div class="layout">
 
-  <!-- ── Main column ── -->
+  <!-- ════════════════ Left column — inputs + results ═══════════════════════ -->
   <div class="col-main">
 
-    <!-- Inputs -->
+    <!-- Input card -->
     <div class="card">
+      <div class="card-title">Submission</div>
       <div class="field">
-        <label>Soal</label>
-        <textarea id="soal" rows="4"></textarea>
+        <label>Soal / Problem Statement</label>
+        <textarea id="soal" rows="4" placeholder="Paste the problem statement here…"></textarea>
       </div>
-
       <div class="field">
-        <label>Submitted Code</label>
-        <textarea id="code" class="code" rows="10"></textarea>
+        <label>Student Code</label>
+        <textarea id="code" class="code" rows="12" placeholder="# paste student code here"></textarea>
       </div>
-
       <div class="two-col">
         <div class="field">
           <label>Expected Output</label>
-          <textarea id="expected_out" rows="4"></textarea>
+          <textarea id="expected_out" rows="4" placeholder="Expected program output…"></textarea>
         </div>
         <div class="field">
-          <label>Simulated Input (Optional)</label>
-          <textarea id="simulated_in" rows="4"></textarea>
+          <label>Simulated Input <small>(optional)</small></label>
+          <textarea id="simulated_in" rows="4" placeholder="stdin input if needed…"></textarea>
         </div>
       </div>
-
       <div class="btn-row">
         <button class="primary" id="evalBtn" onclick="runEvaluate()">▶ Evaluate</button>
         <button onclick="fillDemo()">Load Demo</button>
@@ -265,34 +421,79 @@
       </div>
     </div>
 
-    <!-- Result -->
+    <!-- Fine-tune toolbar (shown after first evaluation) -->
+    <div class="ft-toolbar" id="ft-toolbar">
+      <span class="ft-label">Fine-tune</span>
+      <span class="sample-badge" id="sample-badge">–</span>
+      <button class="btn-green" id="saveBtn" onclick="saveSample()">💾 Save Sample</button>
+      <div class="ft-spacer"></div>
+      <button class="btn-yellow" onclick="exportSamples()">📥 Export JSONL</button>
+      <button class="btn-red"    onclick="clearSamplesConfirm()">🗑 Clear</button>
+    </div>
+
+    <!-- Result card -->
     <div class="card" id="result">
-      <h2>Result <small id="result-time" style="font-weight:normal;color:#666;"></small></h2>
-      <div id="result-body"></div>
+      <div class="result-header">
+        <div class="card-title" style="margin-bottom:0;">
+          Evaluation Result
+          <small id="result-time" style="font-weight:400;color:var(--text3);font-size:11px;"></small>
+        </div>
+        <div class="overall-badge">
+          <div class="score-circle" id="overall-score-circle">—</div>
+          <div>
+            <div class="proficiency-tag" id="proficiency-tag">—</div>
+            <div class="text-sm" id="reasoning-text" style="margin-top:4px;max-width:160px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6-rubric score bars -->
+      <div class="rubric-grid" id="rubric-grid"></div>
+
+      <!-- Feedback (CodeGemma) -->
+      <div class="feedback-block" id="feedback-block" style="display:none;"></div>
+
+      <!-- Per-rubric critique accordion -->
+      <div id="critique-accordion"></div>
+
+      <!-- Meta info -->
+      <div class="text-sm" id="result-meta" style="margin-top:10px;"></div>
     </div>
 
   </div>
 
-  <!-- ── Sidebar ── -->
+  <!-- ════════════════ Right column — sidebar ════════════════════════════════ -->
   <div class="col-side">
 
     <div class="card" style="padding-bottom:0;">
       <div class="tabs">
-        <div class="tab active" onclick="switchTab(this,'tab-model')">Model</div>
-        <div class="tab" onclick="switchTab(this,'tab-tune')">Fine-tune</div>
-        <div class="tab" onclick="switchTab(this,'tab-prompt')">Prompt</div>
+        <div class="tab active" onclick="switchTab(this,'tab-model')">Models</div>
+        <div class="tab" onclick="switchTab(this,'tab-tune')">Params</div>
+        <div class="tab" onclick="switchTab(this,'tab-qlora')">QLoRA</div>
       </div>
 
-      <!-- Model tab -->
-      <div class="tab-content active" id="tab-model" style="padding:14px;">
+      <!-- ── Model tab ─────────────────────────────────────────────────────── -->
+      <div class="tab-content active" id="tab-model" style="padding-bottom:14px;">
+        <div class="model-section-label">Scoring Model (CodeLlama)</div>
         <div class="field">
           <label>API Host</label>
-          <input type="text" id="model_host" value="http://localhost:1234" />
+          <input type="text" id="scoring_host" value="http://localhost:1234" />
         </div>
         <div class="field">
           <label>Model Name</label>
-          <input type="text" id="model_name" value="codellama-7b-instruct" />
+          <input type="text" id="scoring_model" value="codellama-7b-instruct" />
         </div>
+
+        <div class="model-section-label" style="margin-top:16px;">Feedback Model (CodeGemma)</div>
+        <div class="field">
+          <label>API Host</label>
+          <input type="text" id="feedback_host" value="http://localhost:1235" />
+        </div>
+        <div class="field">
+          <label>Model Name</label>
+          <input type="text" id="feedback_model" value="codegemma-1.1-7b-it" />
+        </div>
+
         <div class="field">
           <label>Flask Port</label>
           <input type="number" id="api_port" value="5050" min="1" max="65535" style="width:100px;" />
@@ -300,8 +501,8 @@
         <button onclick="pingHealth()" style="width:100%;margin-bottom:14px;">Test Connection</button>
       </div>
 
-      <!-- Fine-tune tab -->
-      <div class="tab-content" id="tab-tune" style="padding:14px;">
+      <!-- ── Params tab ─────────────────────────────────────────────────────── -->
+      <div class="tab-content" id="tab-tune" style="padding-bottom:14px;">
         <div class="field">
           <label>Temperature</label>
           <div class="slider-row">
@@ -330,39 +531,97 @@
         <button onclick="resetTuning()" style="width:100%;margin-bottom:14px;">Reset Defaults</button>
       </div>
 
-      <!-- Prompt tab -->
-      <div class="tab-content" id="tab-prompt" style="padding:14px;">
-        <div class="field">
-          <label>Custom Instructions</label>
-          <textarea id="custom_instructions" rows="5"></textarea>
+      <!-- ── QLoRA reference tab ────────────────────────────────────────────── -->
+      <div class="tab-content" id="tab-qlora" style="padding-bottom:14px;">
+        <div class="card-title" style="margin-bottom:10px;">Recommended QLoRA Config</div>
+
+        <div class="qlora-param">
+          <div class="qlora-key">Target model</div>
+          <code class="qlora-val">CodeLlama/CodeLlama-7b-Instruct-hf</code>
         </div>
+        <div class="qlora-param">
+          <div class="qlora-key">LoRA rank (r)</div>
+          <code class="qlora-val">16</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">LoRA alpha</div>
+          <code class="qlora-val">32</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">LoRA dropout</div>
+          <code class="qlora-val">0.05</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">Target modules</div>
+          <code class="qlora-val">q_proj, k_proj, v_proj, o_proj</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">Quantization</div>
+          <code class="qlora-val">4-bit (nf4, double quant)</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">Learning rate</div>
+          <code class="qlora-val">2e-4</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">Batch size</div>
+          <code class="qlora-val">4 (grad accum = 4)</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">Epochs</div>
+          <code class="qlora-val">3 – 5</code>
+        </div>
+        <div class="qlora-param">
+          <div class="qlora-key">Dataset format</div>
+          <code class="qlora-val">Alpaca (instruction/input/output)</code>
+        </div>
+        <hr />
+        <div class="text-sm" style="line-height:1.6;">
+          Collected samples are saved as <code style="color:var(--accent2);">finetune_samples.jsonl</code>.
+          Use <strong>Export JSONL</strong> after collecting ≥ 50 samples to begin training with
+          <code style="color:var(--accent2);">trl</code> or <code style="color:var(--accent2);">unsloth</code>.
+        </div>
+        <div style="margin-bottom:14px;"></div>
       </div>
+
     </div>
 
-    <!-- Tips -->
+    <!-- Run command reference -->
     <div class="card">
-      <h2>run command</h2>
-      <pre class="raw" style="margin-bottom:0;"># pip install flask flask-cors openai python-dotenv 
-(if you dont have yet)
+      <div class="card-title">Run Command</div>
+      <pre class="raw" style="margin:0;font-size:11px;">pip install flask flask-cors openai python-dotenv
 
-# python api-simple.py
-will run flask on: http://localhost:5050
+python api-simple.py
+# → http://localhost:5050
 
-# start LM studio service or ollama, adjust the API host
-
+# LM Studio (port 1234) → CodeLlama (scoring)
+# Ollama   (port 11434) → CodeGemma (feedback)
+#   ollama run codegemma:7b-instruct
 # then open index.html in browser</pre>
     </div>
 
   </div>
 </div>
 
+<!-- ════════════════════════════════════════════════════════════════════════════
+  JavaScript
+════════════════════════════════════════════════════════════════════════════ -->
 <script>
+/* ── Helpers ──────────────────────────────────────────────────────────────── */
 function $(id) { return document.getElementById(id); }
-
-function setStatus(msg) { $('status-text').textContent = msg; }
+function esc(s) {
+  return String(s ?? '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
 
 function getBase() {
   return 'http://localhost:' + (parseInt($('api_port').value) || 5050);
+}
+
+function setStatus(msg, state) {
+  $('status-text').textContent = msg;
+  const dot = $('status-dot');
+  dot.className = 'status-dot' + (state ? ' ' + state : '');
 }
 
 function syncVal(el, valId) {
@@ -383,33 +642,40 @@ function resetTuning() {
   $('max_tokens').value = 1024;  syncVal($('max_tokens'), 'max_tokens_val');
 }
 
+/* ── Connection / health ──────────────────────────────────────────────────── */
 async function pingHealth() {
-  setStatus('Checking…');
+  setStatus('Connecting…', 'busy');
   try {
     const r = await fetch(getBase() + '/health', { signal: AbortSignal.timeout(4000) });
     const d = await r.json();
-    setStatus('Connected | model: ' + (d.default_model || 'unknown'));
+    setStatus(
+      `Scoring: ${d.scoring_model || '?'} | Feedback: ${d.feedback_model || '?'}`,
+      'ok'
+    );
   } catch {
-    setStatus('Cannot reach server. Is api-simple.py running?');
+    setStatus('Cannot reach server — is api-simple.py running?', 'error');
   }
 }
 
-pingHealth();
-
-// Load defaults from server
+// Load defaults on startup
 (async () => {
   try {
     const r = await fetch(getBase() + '/defaults', { signal: AbortSignal.timeout(3000) });
     if (!r.ok) return;
     const d = await r.json();
-    if (d.model_host)  $('model_host').value  = d.model_host.replace('/v1','');
-    if (d.model_name)  $('model_name').value  = d.model_name;
+    if (d.scoring_model_host)  $('scoring_host').value  = d.scoring_model_host.replace('/v1','');
+    if (d.scoring_model_name)  $('scoring_model').value = d.scoring_model_name;
+    if (d.feedback_model_host) $('feedback_host').value = d.feedback_model_host.replace('/v1','');
+    if (d.feedback_model_name) $('feedback_model').value = d.feedback_model_name;
     if (d.temperature !== undefined) { $('temperature').value = d.temperature; syncVal($('temperature'),'temperature_val'); }
     if (d.max_tokens  !== undefined) { $('max_tokens').value  = d.max_tokens;  syncVal($('max_tokens'),'max_tokens_val'); }
     if (d.top_p       !== undefined) { $('top_p').value       = d.top_p;       syncVal($('top_p'),'top_p_val'); }
   } catch {}
+  pingHealth();
+  refreshSampleCount();
 })();
 
+/* ── Demo / clear ─────────────────────────────────────────────────────────── */
 function fillDemo() {
   $('soal').value = 'Buatlah program Python untuk mencari nama seorang murid pada daftar nama menggunakan Linear Search dan Binary Search. Bandingkan efisiensi kedua algoritma dan jelaskan kapan masing-masing lebih tepat digunakan.';
   $('code').value =
@@ -455,33 +721,38 @@ Binary Search lebih efisien untuk data besar yang sudah terurut.`;
 }
 
 function clearAll() {
-  ['soal','code','expected_out','simulated_in','custom_instructions'].forEach(id => $(id).value = '');
+  ['soal','code','expected_out','simulated_in'].forEach(id => $(id).value = '');
   $('result').style.display = 'none';
+  $('ft-toolbar').classList.remove('visible');
+  window._lastResult = null;
 }
 
+/* ── Evaluate ─────────────────────────────────────────────────────────────── */
 async function runEvaluate() {
   const soal = $('soal').value.trim();
   const code = $('code').value.trim();
-  if (!soal || !code) { alert('Please fill in "Soal" and "Submitted Code".'); return; }
+  if (!soal || !code) { alert('Please fill in "Soal" and "Student Code".'); return; }
 
   const payload = {
     soal,
     code,
     expected_out:        $('expected_out').value.trim(),
     simulated_in:        $('simulated_in').value.trim(),
-    model_host:          $('model_host').value.trim(),
-    model_name:          $('model_name').value.trim(),
+    scoring_model_host:  $('scoring_host').value.trim(),
+    scoring_model_name:  $('scoring_model').value.trim(),
+    feedback_model_host: $('feedback_host').value.trim(),
+    feedback_model_name: $('feedback_model').value.trim(),
     temperature:         parseFloat($('temperature').value),
     max_tokens:          parseInt($('max_tokens').value),
     top_p:               parseFloat($('top_p').value),
-    custom_instructions: $('custom_instructions').value.trim(),
   };
 
   const btn = $('evalBtn');
   btn.disabled = true;
-  btn.textContent = 'Evaluating…';
+  btn.textContent = '⏳ Evaluating…';
   $('result').style.display = 'none';
-  setStatus('Sending request…');
+  $('ft-toolbar').classList.remove('visible');
+  setStatus('Running evaluation…', 'busy');
 
   const t0 = Date.now();
   try {
@@ -494,77 +765,196 @@ async function runEvaluate() {
     const data = await resp.json();
     if (!resp.ok || data.error) {
       showError(data.error || resp.statusText, elapsed);
+      setStatus('Error', 'error');
     } else {
+      window._lastResult = { ...data, _payload: payload };
       showResult(data, elapsed);
+      $('ft-toolbar').classList.add('visible');
+      setStatus('Done — ' + elapsed + 's', 'ok');
     }
-    setStatus('Done.');
   } catch (err) {
     showError('Network error: ' + err.message, 0);
-    setStatus('Error — is api-simple.py running?');
+    setStatus('Error — is api-simple.py running?', 'error');
   } finally {
     btn.disabled = false;
     btn.textContent = '▶ Evaluate';
   }
 }
 
-function esc(s) {
-  return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+/* ── Render result ────────────────────────────────────────────────────────── */
+const RUBRIC_LABELS = {
+  functionality: 'Functionality',
+  code_style:    'Code Style',
+  documentation: 'Documentation',
+  logic:         'Logic',
+  syntax:        'Syntax',
+  concept:       'Concept',
+};
+
+function scoreColor(v) {
+  if (v >= 80) return '#3ecf8e';
+  if (v >= 60) return '#f5a623';
+  return '#ef4444';
 }
 
 function showResult(data, elapsed) {
-  const cls = data.classification || 'Unknown';
-  const verdictClass = {
-    'Benar': 'benar',
-    'Salah': 'salah',
-    'Sebagian Benar': 'sebagian',
-  }[cls] || '';
+  const scores  = data.scores  || {};
+  const overall = scores.overall_score ?? '—';
 
-  const isCorrectText = data.is_correct === true ? 'true'
-                      : data.is_correct === false ? 'false'
-                      : 'null';
+  // Overall circle
+  $('overall-score-circle').textContent = overall === '—' ? '—' : overall;
+  $('overall-score-circle').style.borderColor = scoreColor(overall);
+  $('overall-score-circle').style.color       = scoreColor(overall);
 
-  let rows = [
-    ['Classification', `<span class="verdict ${verdictClass}">${esc(cls)}</span>`],
-    ['is_correct',     esc(isCorrectText)],
-    ['Explanation',    esc(data.explanation || '—')],
-  ];
+  // Proficiency tag
+  $('proficiency-tag').textContent = data.inferred_proficiency || '—';
+  $('reasoning-text').textContent  = data.reasoning || '';
 
-  if (data.complexity_analysis) {
-    rows.push(['Complexity', esc(data.complexity_analysis)]);
+  // 6-rubric bars
+  const grid = $('rubric-grid');
+  grid.innerHTML = '';
+  const rubricKeys = ['functionality','code_style','documentation','logic','syntax','concept'];
+  for (const k of rubricKeys) {
+    const v   = scores[k] ?? 0;
+    const col = scoreColor(v);
+    grid.innerHTML += `
+      <div class="rubric-item">
+        <div class="rubric-label">${RUBRIC_LABELS[k] || k} <span style="color:${col};">${v}</span></div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${v}%;background:${col};"></div>
+        </div>
+      </div>`;
   }
 
-  let html = '<table class="result-table"><tbody>';
-  for (const [k, v] of rows) {
-    html += `<tr><th>${esc(k)}</th><td>${v}</td></tr>`;
-  }
-  html += '</tbody></table>';
-
-  if (data.raw_output) {
-    html += `<p style="margin-top:12px;font-weight:bold;font-size:13px;color:#a00;">
-      ⚠ Could not parse JSON — raw model output:</p>
-      <pre class="raw">${esc(data.raw_output)}</pre>`;
+  // Feedback block (CodeGemma)
+  const fb = $('feedback-block');
+  if (data.feedback) {
+    fb.textContent = data.feedback;
+    fb.style.display = 'block';
+  } else {
+    fb.style.display = 'none';
   }
 
-  if (data._meta) {
-    const m = data._meta;
-    html += `<p style="margin-top:12px;font-size:12px;color:#666;">
-      Model: ${esc(m.model_name)} &nbsp;|&nbsp;
-      temp: ${m.temperature} &nbsp;|&nbsp;
-      top_p: ${m.top_p} &nbsp;|&nbsp;
-      max_tokens: ${m.max_tokens}
-    </p>`;
+  // Per-rubric critique accordion
+  const acc = $('critique-accordion');
+  acc.innerHTML = '';
+  const critique = data.critique || {};
+  for (const k of rubricKeys) {
+    const crit = critique[k] || '—';
+    const isOk = crit.toLowerCase().includes('all good');
+    const chevron = isOk ? '✓' : '▼';
+    acc.innerHTML += `
+      <div class="accordion-btn" onclick="toggleAccordion(this)">
+        <span>${RUBRIC_LABELS[k] || k} ${isOk ? '<span style="color:var(--green)">✓</span>' : ''}</span>
+        <span>${chevron}</span>
+      </div>
+      <div class="accordion-body">${esc(crit)}</div>`;
   }
 
-  $('result-body').innerHTML = html;
+  // Meta
+  const m = data._meta || {};
+  $('result-meta').innerHTML = m.scoring_model_name
+    ? `Scoring: <strong>${esc(m.scoring_model_name)}</strong> &nbsp;|&nbsp; Feedback: <strong>${esc(m.feedback_model_name)}</strong> &nbsp;|&nbsp; temp: ${m.temperature} &nbsp;|&nbsp; top_p: ${m.top_p}`
+    : '';
+
   $('result-time').textContent = '(' + elapsed + 's)';
   $('result').style.display = 'block';
 }
 
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  body.classList.toggle('open');
+}
+
 function showError(msg, elapsed) {
-  $('result-body').innerHTML = `<p style="color:#a00;"><strong>Error:</strong> ${esc(msg)}</p>`;
+  // Reset score display
+  $('overall-score-circle').textContent = '!';
+  $('overall-score-circle').style.borderColor = 'var(--red)';
+  $('overall-score-circle').style.color = 'var(--red)';
+  $('proficiency-tag').textContent = 'Error';
+  $('reasoning-text').textContent  = '';
+  $('rubric-grid').innerHTML = '';
+  $('feedback-block').innerHTML = `<span class="text-err"><strong>Error:</strong> ${esc(msg)}</span>`;
+  $('feedback-block').style.display = 'block';
+  $('critique-accordion').innerHTML = '';
+  $('result-meta').innerHTML = '';
   $('result-time').textContent = elapsed ? '(' + elapsed + 's)' : '';
   $('result').style.display = 'block';
+}
+
+/* ── Fine-tune / QLoRA dataset ────────────────────────────────────────────── */
+async function refreshSampleCount() {
+  try {
+    const r = await fetch(getBase() + '/samples-count', { signal: AbortSignal.timeout(2000) });
+    if (r.ok) {
+      const d = await r.json();
+      $('sample-badge').textContent = d.count ?? 0;
+    }
+  } catch {}
+}
+
+async function saveSample() {
+  if (!window._lastResult) return;
+  const d      = window._lastResult;
+  const prompts = d._prompts || {};
+
+  // Build Alpaca sample (scoring call — for fine-tuning CodeLlama)
+  const scoringOutput = JSON.stringify({
+    scores: d.scores
+  }, null, 2);
+
+  const payload = {
+    source:      'scoring',
+    instruction: prompts.scoring_prompt || '(prompt not available)',
+    output:      scoringOutput,
+    metadata: {
+      soal_snippet: (d._payload?.soal || '').slice(0, 120),
+      overall_score: d.scores?.overall_score,
+    },
+  };
+
+  const btn = $('saveBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Saving…';
+  try {
+    const r = await fetch(getBase() + '/save-sample', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const res = await r.json();
+    if (res.error) {
+      alert('Error: ' + res.error);
+    } else {
+      $('sample-badge').textContent = res.total_samples ?? '?';
+      btn.textContent = '✓ Saved!';
+      setTimeout(() => { btn.textContent = '💾 Save Sample'; }, 1800);
+    }
+  } catch (e) {
+    alert('Save error: ' + e.message);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function exportSamples() {
+  const count = parseInt($('sample-badge').textContent) || 0;
+  if (count === 0) {
+    alert('No samples collected yet. Run at least one evaluation and click "Save Sample" first.');
+    return;
+  }
+  window.location.href = getBase() + '/export-samples';
+}
+
+async function clearSamplesConfirm() {
+  const count = parseInt($('sample-badge').textContent) || 0;
+  if (!confirm(`Delete all ${count} collected samples? This cannot be undone.`)) return;
+  try {
+    await fetch(getBase() + '/clear-samples', { method: 'DELETE' });
+    $('sample-badge').textContent = '0';
+  } catch (e) {
+    alert('Error: ' + e.message);
+  }
 }
 </script>
 </body>
